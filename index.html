@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduEnlace CR - Orientación Universitaria para Comunidad Migrante</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="nav-bar">
+            <div class="logo">EduEnlace <span class="sub-logo">CR</span></div>
+            <span class="tagline">Portal de Orientación Universitaria para la Comunidad Migrante</span>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="section-card">
+            <h2 class="section-title">💡 Consulta de Beneficios por Identificación</h2>
+            <p class="section-subtitle">
+                Ingresa tu número de documento de identidad en Costa Rica (DIMEX, Solicitud de Refugio o Cédula de Residencia) para conocer los derechos institucionales a los que puedes acceder.
+            </p>
+            
+            <form id="form-estatus" class="form-inline">
+                <input type="text" id="input-documento" placeholder="Ej. 1154000XXXXX o DIMEX" required>
+                <button type="submit" class="button-primary">Consultar Derechos</button>
+            </form>
+
+            <div id="result-box" class="result-box hidden">
+                <h3 id="result-title"></h3>
+                <p id="result-description"></p>
+                <ul id="result-list"></ul>
+            </div>
+        </section>
+
+        <section class="section-card">
+            <h2 class="section-title">🔍 Buscador de Universidades</h2>
+            <p class="section-subtitle">Filtra por nombre de la institución o por carrera para ver convenios y asistencia.</p>
+            <input type="text" id="input-busqueda" placeholder="Buscar por universidad o carrera..." class="input-full">
+            <div id="grid-universidades" class="grid-universidades"></div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>© 2026 EduEnlace Costa Rica.</p>
+    </footer>
+
+    <script src="./script.js"></script>
+</body>
+</html>
