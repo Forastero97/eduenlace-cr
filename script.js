@@ -24,7 +24,7 @@ const UNIVERSIDADES = [
     },
     {
         id: 3,
-        nombre: "Universidad Tecnológica Costarricense (Ejemplo)",
+        nombre: "Universidad Latina de Costa Rica (ULATINA)",
         tipo: "Privada",
         carreras: ["Ingeniería del Software", "Diseño Gráfico"],
         beneficiosMigrantes: "Beca de asistencia del 20% en las mensualidades regulares al presentar el carnet de solicitud de refugio emitido por Migración.",
