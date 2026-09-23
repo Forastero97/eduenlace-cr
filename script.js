@@ -1,216 +1,475 @@
-/**
- * =========================================================================
- * 1. BASE DE DATOS LOCAL (MOCK DATA)
- * =========================================================================
- * Aquí se almacena la información que alimentará al buscador. Puedes agregar,
- * quitar o modificar los objetos de este arreglo según lo necesites.
- */
-const UNIVERSIDADES = [
-    {
-        id: 1,
-        nombre: "Universidad de Costa Rica (UCR)",
-        tipo: "Pública",
-        carreras: ["Informática Empresarial", "Ingeniería Industrial", "Medicina", "Derecho"],
-        beneficiosMigrantes: "Exoneración de matrícula por condición de refugio, convenios de validación de títulos con el Ministerio de Relaciones Exteriores y acceso a becas socioeconómicas completas.",
-        contacto: "Oficina de Becas y Atención Social (OBAS)"
-    },
-    {
-        id: 2,
-        nombre: "Universidad Nacional (UNA)",
-        tipo: "Pública",
-        carreras: ["Sistemas de Información", "Administración", "Sociología", "Relaciones Internacionales"],
-        beneficiosMigrantes: "Exención de cobros de matrícula diferenciada para extranjeros si cuentan con estatus de refugio (pagan como nacionales). Cupos especiales de vulnerabilidad.",
-        contacto: "Departamento de Registro y Vida Estudiantil"
-    },
-    {
-        id: 3,
-        nombre: "Universidad Latina de Costa Rica (ULATINA)",
-        tipo: "Privada",
-        carreras: ["Ingeniería del Software", "Diseño Gráfico"],
-        beneficiosMigrantes: "Beca de asistencia del 20% en las mensualidades regulares al presentar el carnet de solicitud de refugio emitido por Migración.",
-        contacto: "Departamento de Admisiones y Mercadeo"
-    }
-];
+/* =========================================================================
+   ESTILOS GENERALES Y PALETA: AZULES, ROJOS Y BLANCO
+   =========================================================================
+   - Azul 1 (Profundo): #0a192f
+   - Azul 2 (Marino): #1e3a8a
+   - Azul 3 (Cobalto): #2563eb
+   - Rojo 1 (Rubí): #991b1b
+   - Rojo 2 (Carmesí): #dc2626
+   - Rojo 3 (Coral): #f87171
+   - Blanco: #ffffff / Fondo neutro: #f8fafc
+   ========================================================================= */
 
-/**
- * Diccionario de beneficios según el estatus detectado por el documento.
- */
-const BENEFICIOS_POR_ESTATUS = {
-    refugiado: {
-        titulo: "Estatus: Refugiado Aprobado",
-        descripcion: "Usted cuenta con plenos derechos de equiparación de costos de matrícula en la educación superior pública.",
-        lista: [
-            "Pago de aranceles idéntico al de un ciudadano costarricense.",
-            "Acceso completo a postulación de becas socioeconómicas, de residencia y alimentación.",
-            "Procesos específicos de validación de títulos previos mediante ACNUR."
-        ]
-    },
-    solicitante: {
-        titulo: "Estatus: Solicitante de Refugio",
-        descripcion: "Aunque tu condición está en trámite, existen alternativas de apoyo vigentes en Costa Rica.",
-        lista: [
-            "Permiso de estudio válido ante los consejos universitarios utilizando tu carnet provisional.",
-            "Acceso a programas institucionales de extensión comunitaria y cursos técnicos gratuitos.",
-            "Elegibilidad para convenios de asistencia financiera en universidades privadas aliadas."
-        ]
-    },
-    dimex: {
-        titulo: "Estatus: Residencia Regularizada (DIMEX)",
-        descripcion: "Tu estatus de residencia facilita los trámites ordinarios de ingreso.",
-        lista: [
-            "Acceso a financiamiento educativo estatal (CONAPE) bajo las regulaciones de residencia.",
-            "Procesos de convalidación regulares ante el CONARE."
-        ]
-    },
-    desconocido: {
-        titulo: "Estatus No Identificado",
-        descripcion: "El formato del documento no coincide con las alertas automáticas.",
-        lista: [
-            "Te recomendamos acercarte a la oficina de orientación académica de la universidad o contactar directamente a las agencias de apoyo al refugiado (como ACNUR o HIAS) para validar tu caso de forma personalizada."
-        ]
-    }
-};
-
-
-/**
- * =========================================================================
- * 2. SELECCIÓN DE ELEMENTOS DEL DOM (HTML)
- * =========================================================================
- * Enlazamos las variables de JavaScript con las etiquetas idénticas del HTML.
- */
-const gridUniversidades = document.getElementById('grid-universidades');
-const inputBusqueda = document.getElementById('input-busqueda');
-const formEstatus = document.getElementById('form-estatus');
-const inputDocumento = document.getElementById('input-documento');
-
-// Elementos de la caja de resultados
-const resultBox = document.getElementById('result-box');
-const resultTitle = document.getElementById('result-title');
-const resultDescription = document.getElementById('result-description');
-const resultList = document.getElementById('result-list');
-
-
-/**
- * =========================================================================
- * 3. FUNCIONES DE RENDERIZADO Y LÓGICA
- * =========================================================================
- */
-
-/**
- * Limpia el contenedor de la pantalla e inyecta las tarjetas de las universidades
- * @param {Array} listado - Arreglo de objetos de universidades a mostrar
- */
-function renderUniversidades(listado) {
-    // 1. Limpiar lo que haya adentro actualmente
-    gridUniversidades.innerHTML = ''; 
-
-    // 2. Si no hay coincidencias, mostrar un mensaje amigable
-    if (listado.length === 0) {
-        gridUniversidades.innerHTML = `
-            <p class="no-results">
-                No se encontraron universidades o carreras que coincidan con tu búsqueda. 
-                Prueba con términos generales como "Informática" o "UCR".
-            </p>
-        `;
-        return;
-    }
-
-    // 3. Crear y agregar la tarjeta de cada universidad al contenedor
-    listado.forEach(uni => {
-        const card = document.createElement('div');
-        card.className = 'uni-card';
-        
-        card.innerHTML = `
-            <div class="uni-header">
-                <h3 class="uni-name">${uni.nombre}</h3>
-                <span class="badge">${uni.tipo}</span>
-            </div>
-            <div class="uni-body">
-                <h4>Oferta Académica Destacada:</h4>
-                <p class="carreras-list">${uni.carreras.join(', ')}</p>
-                
-                <div class="alert-box">
-                    <strong>🌱 Apoyo Migrante / Refugio:</strong>
-                    <p style="margin: 5px 0 0 0">${uni.beneficiosMigrantes}</p>
-                </div>
-                
-                <p class="contacto-text">
-                    <strong>Contacto de Gestión:</strong> ${uni.contacto}
-                </p>
-            </div>
-        `;
-        
-        gridUniversidades.appendChild(card);
-    });
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f8fafc; /* Blanco grisáceo neutro */
+    color: #0f172a;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
+/* --- HEADER Y NAVEGACIÓN --- */
+.main-header {
+    background: linear-gradient(135deg, #0a192f 0%, #1e3a8a 60%, #2563eb 100%); /* Degradado de los 3 tonos de azul */
+    color: #ffffff;
+    padding: 25px 20px;
+    border-bottom: 5px solid #dc2626; /* Detalle Rojo Carmesí */
+    box-shadow: 0 4px 14px rgba(10, 25, 47, 0.25);
+}
 
-/**
- * =========================================================================
- * 4. ESCUCHADORES DE EVENTOS (EVENT LISTENERS)
- * =========================================================================
- */
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
 
-/**
- * Escucha lo que el usuario escribe en el buscador
- */
-inputBusqueda.addEventListener('input', (e) => {
-    const terminoBusqueda = e.target.value.toLowerCase();
+.logo {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+}
+
+.sub-logo {
+    color: #ffffff;
+    background-color: #dc2626; /* Fondo Rojo Carmesí */
+    padding: 2px 8px;
+    border-radius: 6px;
+    margin-left: 4px;
+}
+
+.tagline {
+    font-size: 14px;
+    font-style: italic;
+    color: #e2e8f0;
+}
+
+/* --- CONTENIDO PRINCIPAL Y SECCIONES --- */
+.main-content {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+    flex: 1;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.section-card {
+    background-color: #ffffff;
+    border-radius: 14px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 18px rgba(15, 23, 42, 0.06);
+    border-left: 7px solid #1e3a8a; /* Borde Azul Marino */
+    position: relative;
+}
+
+/* Alternancia cromática para la segunda tarjeta */
+.section-card:nth-of-type(2) {
+    border-left-color: #991b1b; /* Borde Rojo Rubí */
+}
+
+.section-title {
+    margin: 0 0 10px 0;
+    color: #0a192f; /* Azul Profundo */
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.section-subtitle {
+    margin: 0 0 20px 0;
+    color: #475569;
+    line-height: 1.6;
+}
+
+/* --- FORMULARIOS E INPUTS --- */
+.form-inline {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+input[type="text"] {
+    flex: 1;
+    min-width: 220px;
+    padding: 14px;
+    border-radius: 8px;
+    border: 2px solid #cbd5e1;
+    font-size: 15px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    background-color: #ffffff;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #2563eb; /* Azul Cobalto */
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.18);
+}
+
+.input-full {
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.button-primary {
+    background-color: #dc2626; /* Rojo Carmesí */
+    color: #ffffff;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 3px 8px rgba(220, 38, 38, 0.3);
+}
+
+.button-primary:hover {
+    background-color: #991b1b; /* Rojo Rubí */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(153, 27, 27, 0.4);
+}
+
+/* --- CAJA DE RESULTADOS DE DOCUMENTO --- */
+.result-box {
+    margin-top: 25px;
+    padding: 22px 25px;
+    background-color: #eff6ff; /* Fondo Azul clarito */
+    border-left: 7px solid #2563eb; /* Azul Cobalto */
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.08);
+}
+
+.result-box h3 {
+    margin: 0 0 10px 0;
+    color: #1e3a8a; /* Azul Marino */
+}
+
+.result-box ul {
+    margin: 10px 0 0 0;
+    padding-left: 20px;
+}
+
+.result-box li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+/* =========================================================================
+   CARRUSEL DE INSTITUCIONES (ESTILO INSTAGRAM FEED)
+   ========================================================================= */
+.carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 22px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    padding: 10px 5px 25px 5px;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+}
+
+.carousel-track::-webkit-scrollbar {
+    height: 10px;
+}
+
+.carousel-track::-webkit-scrollbar-thumb {
+    background: #dc2626; /* Scrollbar Rojo Carmesí */
+    border-radius: 5px;
+}
+
+/* FLECHAS DE NAVEGACIÓN LATERAL */
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    background-color: #ffffff;
+    color: #1e3a8a;
+    border: 2px solid #2563eb; /* Borde Azul Cobalto */
+    border-radius: 50%;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(10, 25, 47, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.carousel-arrow:hover {
+    background-color: #1e3a8a; /* Fondo Azul Marino */
+    color: #ffffff;
+    border-color: #1e3a8a;
+}
+
+.left-arrow {
+    left: -20px;
+}
+
+.right-arrow {
+    right: -20px;
+}
+
+/* TARJETAS DEL CARRUSEL */
+.uni-card {
+    flex: 0 0 85%;
+    max-width: 650px;
+    scroll-snap-align: center;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    background-color: #ffffff;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(15, 23, 42, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    align-self: flex-start;
+}
+
+/* BANNER DE IMAGEN MÁS ALTO (340px) */
+.uni-banner {
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 3px solid #dc2626; /* Borde Rojo Carmesí */
+}
+
+.uni-header {
+    padding: 18px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    background-color: #ffffff;
+}
+
+.uni-name {
+    margin: 0;
+    font-size: 20px;
+    color: #0a192f; /* Azul Profundo */
+    font-weight: 700;
+}
+
+.badge {
+    background-color: #fef2f2; /* Rojo clarito */
+    color: #991b1b; /* Texto Rojo Rubí */
+    border: 1px solid #fca5a5;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.uni-preview {
+    padding: 0 24px 15px 24px;
+    color: #475569;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.btn-toggle-container {
+    padding: 0 24px 18px 24px;
+}
+
+.btn-toggle {
+    background: none;
+    border: none;
+    color: #2563eb; /* Azul Cobalto */
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-toggle:hover {
+    color: #dc2626; /* Rojo Carmesí al pasar el ratón */
+    text-decoration: underline;
+}
+
+/* DESPLEGABLE HACIA ABAJO */
+.uni-collapsible {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
+    background-color: #fafafa;
+    border-top: 1px dashed #e2e8f0;
+}
+
+.uni-card.expanded .uni-collapsible {
+    max-height: 4000px;
+    transition: max-height 0.5s ease-in-out;
+}
+
+.uni-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.uni-body h4 {
+    color: #1e3a8a; /* Encabezado "Oferta académica" en Azul Marino */
+    margin: 0;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.carreras-ul {
+    margin: 8px 0 0 20px;
+    padding: 0;
+    color: #334155;
+    font-size: 14px;
+}
+
+.carreras-ul li {
+    margin-bottom: 6px;
+}
+
+/* CAJA DE REQUISITOS */
+.alert-box {
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-left: 6px solid #dc2626; /* Borde Rojo Carmesí */
+    padding: 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #0f172a;
+}
+
+.alert-box p {
+    margin: 8px 0;
+}
+
+.contacto-text {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #64748b;
+    border-top: 1px dashed #e2e8f0;
+    padding-top: 12px;
+    word-break: break-word;
+}
+
+/* --- UTILIDADES Y FOOTER --- */
+.hidden {
+    display: none !important;
+}
+
+.no-results {
+    width: 100%;
+    text-align: center;
+    color: #64748b;
+    padding: 40px 20px;
+    font-size: 16px;
+}
+
+.main-footer {
+    background-color: #0a192f; /* Azul Profundo */
+    color: #ffffff;
+    text-align: center;
+    padding: 22px;
+    font-size: 13px;
+    margin-top: auto;
+    border-top: 4px solid #dc2626; /* Detalle Rojo */
+}
+
+/* =========================================================================
+   RESPONSIVO
+   ========================================================================= */
+@media (min-width: 769px) {
+    .uni-card {
+        flex: 0 0 600px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-bar {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
     
-    // Filtramos si el nombre de la U o alguna de sus carreras contiene el término escrito
-    const universidadesFiltradas = UNIVERSIDADES.filter(uni => {
-        const coincideNombre = uni.nombre.toLowerCase().includes(terminoBusqueda);
-        const coincideCarrera = uni.carreras.some(carrera => carrera.toLowerCase().includes(terminoBusqueda));
-        
-        return coincideNombre || coincideCarrera;
-    });
+    .main-content {
+        padding: 0 10px;
+        margin: 15px auto;
+    }
     
-    // Volvemos a dibujar las tarjetas con el filtro aplicado
-    renderUniversidades(universidadesFiltradas);
-});
-
-/**
- * Escucha el envío del formulario de identidad
- */
-formEstatus.addEventListener('submit', (e) => {
-    e.preventDefault(); // Evita que la página se recargue sola
+    .section-card {
+        padding: 18px 12px;
+    }
     
-    const documentoValue = inputDocumento.value.trim();
-    let estatusDetectado = 'desconocido';
-
-    // Algoritmo de simulación basado en formatos de identificación comunes en CR
-    if (documentoValue.startsWith('115') || documentoValue.length === 12) {
-        estatusDetectado = 'refugiado';
-    } else if (documentoValue.startsWith('155')) {
-        estatusDetectado = 'solicitante';
-    } else if (documentoValue.length === 9) {
-        estatusDetectado = 'dimex';
+    .form-inline {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    input[type="text"], .button-primary {
+        width: 100%;
     }
 
-    // Extraer la información correspondiente del diccionario
-    const datosEstatus = BENEFICIOS_POR_ESTATUS[estatusDetectado];
+    .carousel-arrow {
+        width: 38px;
+        height: 38px;
+        font-size: 16px;
+    }
 
-    // Inyectar el texto en el cuadro de resultados del HTML
-    resultTitle.textContent = datosEstatus.titulo;
-    resultDescription.textContent = datosEstatus.descripcion;
-    
-    // Limpiar viñetas anteriores e inyectar las nuevas
-    resultList.innerHTML = '';
-    datosEstatus.lista.forEach(beneficio => {
-        const li = document.createElement('li');
-        li.textContent = beneficio;
-        resultList.appendChild(li);
-    });
+    .left-arrow {
+        left: -5px;
+    }
 
-    // Mostrar el cuadro de resultados eliminando la clase que lo oculta
-    resultBox.classList.remove('hidden');
-});
+    .right-arrow {
+        right: -5px;
+    }
 
+    .uni-card {
+        flex: 0 0 92%;
+    }
 
-/**
- * =========================================================================
- * 5. EJECUCIÓN INICIAL
- * =========================================================================
- * Carga el listado completo de universidades de forma automática la primera vez que abre la web.
- */
-renderUniversidades(UNIVERSIDADES);
+    .uni-banner {
+        height: 240px; /* Altura en móviles */
+    }
+
+    .uni-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 15px;
+    }
+
+    .uni-preview, .btn-toggle-container, .uni-body {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
