@@ -551,7 +551,7 @@ function renderUniversidades(listado) {
 
     listado.forEach(uni => {
         const card = document.createElement('div');
-        // Si hay un solo resultado, se le añade la clase 'single-card' para ocupar todo el ancho
+        // Si hay un solo resultado, se asigna 'single-card' para expandirse al 100%
         card.className = `uni-card ${esUnicoResultado ? 'single-card' : ''}`;
         
         const carrerasHTML = uni.carreras.map(c => `<li>${c}</li>`).join('');
@@ -675,7 +675,7 @@ inputBusqueda.addEventListener('input', (e) => {
 
 /**
  * =========================================================================
- * 6. FORMULARIO POR CATEGORÍA
+ * 6. FORMULARIO POR CATEGORÍA MIGRATORIA
  * =========================================================================
  */
 formEstatus.addEventListener('submit', (e) => {
