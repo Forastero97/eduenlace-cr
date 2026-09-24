@@ -33,19 +33,12 @@ const UNIVERSIDADES = [
         ],
         beneficiosMigrantes: `
             <p><strong>Población Elegible:</strong> Costarricenses por nacimiento o naturalización; Centroamericanos y del Caribe con condición migratoria vigente de residente permanente, refugiado o solicitante de refugio; Estudiantes extranjeras de México y Sudamérica con condición migratoria vigente de residente permanente, refugiado o solicitante de refugio (se resuelve según posibilidades presupuestarias).</p>
-            
             <p><strong>Exoneración de créditos según Categoría Socioeconómica:</strong> Cat 1: 20%, Cat 2: 40%, Cat 3: 60%, Cat 4: 80%, Cat 5: 100%. Contempla ayudas complementarias y beneficios económicos adicionales.</p>
-
             <p><strong>Periodo de solicitud (Admisión 2027):</strong> Del 2 de diciembre 2026 al 8 de enero 2027 (período para descargar solicitud de categoría de beca, Beca Omar Dengo y Beca Luis Felipe González).</p>
-
             <p><strong>Beca Luis Felipe González Flores:</strong> Aporte económico mensual en período lectivo + acciones socioeducativas. <em>Requisitos/Obligaciones:</em> Solicitud en período; Tener aprobada y vigente categoría 5; Matricular bloque completo de materias (excepciones Art. 26 y 34); No ser funcionario/a de la UNA; Asistir y cumplir programas institucionales de logro académico en caso de pérdida o rezago.</p>
-
             <p><strong>Beca Omar Dengo (Residencia Estudiantil):</strong> Aporte económico mensual + ubicación en residencia (Campus Omar Dengo, Benjamín Núñez, Pérez Zeledón, Sarapiquí, Nicoya y Liberia). <em>Requisitos:</em> Solicitud en período ante DBE; Categoría socioeconómica 5 aprobada; Matricular bloque completo (excepciones Art. 26 y 34); Nuevo ingreso: promedio >= 80 en los dos últimos años de secundaria; Regulares: promedio >= 8.0 en período lectivo anterior con 100% de créditos aprobados (excepcionalmente se justifica 1 curso reprobado si asistió y es de alta repitencia); Asistir a programas de logro académico; En renovación: máximo 2 llamadas de atención escritas por incumplir condiciones de residencia; No laborar en institución pública o privada. <em>Obligaciones:</em> Cumplir condiciones de uso de residencia; Participación activa en al menos 1 proyecto de promoción y sana convivencia; Asistir a programas de logro académico.</p>
-
             <p><strong>Beca de Posgrado:</strong> Aporte económico mensual para grado obtenido en UNA u otra U, admitido en posgrado institucional y de limitada condición socioeconómica. <em>Requisitos:</em> Bloque completo matriculado; Valoración socioeconómica; No pertenecer al funcionariado UNA; Aprobar el 100% de cursos matriculados.</p>
-
             <p><strong>Beca de Honor:</strong> Exoneración total de créditos. <em>Requisitos:</em> Solicitud en plazo ante DBE; Matricular mínimo 8 créditos trimestrales, 12 en ciclo o 24 anuales (mínimo 12 en período actual); Nuevo ingreso: promedio >= 9.0 en dos últimos años de secundaria Y nota de admisión Y nota >= 9.0; Regulares: año anterior con promedio >= 9.0, matrícula mínima de 24 créditos y 100% aprobados.</p>
-
             <p><strong>Categorías de Estudiante Asistente:</strong>
                 <ul>
                     <li><em>Asistente Académico:</em> Exención 100% créditos + aporte mensual (requiere horas tipo "académico").</li>
@@ -56,14 +49,12 @@ const UNIVERSIDADES = [
                 </ul>
                 <em>Requisitos Asistentes:</em> Matrícula mínima de 6 cr trimestrales, 9 ciclo o 18 anuales; Promedio >= 7.5 (>= 8.0 para Graduado); Mínimo 4h, máximo 20h semanales; No ser funcionario/a UNA; Cuenta en BNCR y registro en SIBEUNA.
             </p>
-
             <p><strong>Movilidad Internacional e Intercambio de Grado:</strong>
                 <ul>
                     <li><em>Ayuda Económica Movilidad:</em> Aporte para eventos, cursos cortos, pasantías y ponencias (Promedio >= 7.5, matrícula mínima, costarricense o residente).</li>
                     <li><em>Becas Intercambio Grado:</em> Promedio >= 8.0, matricular mínimo 4 cursos en U anfitriona y retribuir 1/8 de tiempo sin remuneración por 1 ciclo al regresar.</li>
                 </ul>
             </p>
-
             <p><strong>Becas por Participación Relevante:</strong>
                 <ul>
                     <li><em>Artísticas y Deportivas:</em> Integrantes de grupos representativos (www.vidaestudiantil.una.ac.cr/becaarteydeporte). Aprobar mínimo 6 cr trimestrales / 9 ciclo / 18 anuales.</li>
@@ -102,11 +93,8 @@ const UNIVERSIDADES = [
         ],
         beneficiosMigrantes: `
             <p><strong>Marco General:</strong> Reglamento de Adjudicación de Becas a la Población Estudiantil.</p>
-
             <p><strong>Población Elegible (Art. 5):</strong> Población estudiantil nacional; Población extranjera con residencia permanente; Población con estatus cubierto por tratados e instrumentos internacionales vigentes en Costa Rica.</p>
-
             <p><strong>Períodos y Documentación:</strong> Solicitud ante la OBAS (Art. 7). Fechas definidas en el Calendario Estudiantil (Art. 8). Información socioeconómica se actualiza cada 6 años (Art. 15).</p>
-
             <p><strong>Categorías de Beca Socioeconómica, Exoneración y Beneficios:</strong>
                 <ul>
                     <li><em>Beca 1:</em> 45% exoneración | Préstamo para libros, equipo e instrumentos.</li>
@@ -116,13 +104,9 @@ const UNIVERSIDADES = [
                     <li><em>Beca 5:</em> 100% exoneración | 100% laboratorios/deportes/graduación; monto económico para gastos de carrera, transporte, alojamiento y alimentación.</li>
                 </ul>
             </p>
-
             <p><strong>Requisitos de Permanencia (UCR):</strong> Consolidar mínimo 12 créditos por ciclo lectivo (proporcional si es menor). Promedio anual >= 7.0 en grado Y >= 8.0 en posgrado. Excepciones justificadas por emergencias de salud o familiares.</p>
-
             <p><strong>Becas por Actividades Universitarias (Art. 26 - 30):</strong> Beca de Estímulo (personal UCR), Beca por Representación (FEUCR/Consejo U) y Beca por Participación (grupos artísticos, deportivos y Horas Estudiante/Asistente). Exoneración total o parcial de matrícula.</p>
-
             <p><strong>Beca de Excelencia Académica (Art. 31):</strong> Nota >= 9.0 en PAA de admisión o promedio >= 9.0 en año anterior con mínimo 15 créditos por ciclo.</p>
-
             <p><strong>Reconocimiento Jorge Debravo (Art. 33):</strong> Galardón nacional/internacional conferido por institución pública. Beneficio: Exoneración de matrícula por 1 año lectivo.</p>
         `,
         contacto: "Oficina de Becas y Atención Social (OBAS) - Vicerrectoría de Vida Estudiantil, UCR."
@@ -156,16 +140,13 @@ const UNIVERSIDADES = [
         ],
         beneficiosMigrantes: `
             <p><strong>Documentación de Identidad:</strong> Costarricenses: copia de cédula del grupo familiar Y del estudiante. Extranjeros en condición regular: DIMEX vigente.</p>
-
             <p><strong>Requisitos de Solicitud Socioeconómica:</strong> Encuesta socioeconómica impresa y firmada; Consentimiento informado; Comprobantes de ingresos/gastos; Cuenta activa en el BNCR.</p>
-
             <p><strong>Periodos de Solicitud TEC:</strong>
                 <ul>
                     <li><em>II Semestre 2026:</em> Solicitud del 18 al 22 de junio 2026; Entrega encuesta hasta el 3 de julio 2026.</li>
                     <li><em>I Semestre 2026:</em> Solicitud del 20 al 22 de octubre 2025.</li>
                 </ul>
             </p>
-
             <p><strong>Requisitos de Becas TEC:</strong>
                 <ul>
                     <li><em>Beca de Honor:</em> Promedio >= 90; Nota > 80 en cada curso; Bloque completo (asignación automática).</li>
@@ -206,23 +187,19 @@ const UNIVERSIDADES = [
         ],
         beneficiosMigrantes: `
             <p><strong>Marco Reglamentario:</strong> Reglamento del Sistema de Becas y Beneficios Estudiantiles de la UTN.</p>
-
             <p><strong>Principios Clave:</strong>
                 <ul>
                     <li><em>Principio de Oportunidad Única:</em> Exclusivamente para estudiantes sin título universitario previo (diplomado, bachillerato o licenciatura).</li>
                     <li><em>Carga Académica y Rendimiento:</em> Bloque completo o mínimo aprobado por Vida Estudiantil. Promedio ponderado mínimo de 7.0.</li>
                 </ul>
             </p>
-
             <p><strong>Tipos de Becas y Subsidios:</strong>
                 <ul>
                     <li><em>Exoneraciones:</em> Socioeconómica (Categorías 1 a 5 con exoneración del 25% al 100%), Rendimiento Académico y Estímulo/Representación (FEUTN/Arte/Deporte).</li>
                     <li><em>Subsidios Complementarios (Beca 4 y 5):</em> Alimentación (almuerzo/cena), Transporte diario y Residencia/Reubicación Geográfica.</li>
                 </ul>
             </p>
-
             <p><strong>Identificación Oficial Aceptada para Migrantes:</strong> Cédula para nacionales; <strong>Pasaporte al día, DIMEX vigente o Documento Oficial que acredite la condición de Solicitante de Refugio en Costa Rica</strong>. Requiere formulario socioeconómico digital y comprobantes probatorios.</p>
-
             <p><strong>Periodo de Solicitud UTN:</strong> Del 21 al 25 de setiembre de 2026.</p>
         `,
         contacto: "Fuente: Universidad Técnica Nacional. Solicitud de Beca. https://www.utn.ac.cr/solicitud-de-beca"
@@ -256,9 +233,7 @@ const UNIVERSIDADES = [
         ],
         beneficiosMigrantes: `
             <p><strong>Documentación Requerida UNED:</strong> Identificación vigente; Constancias salariales/orden patronal (asalariados); Declaraciones juradas de ingresos (informales); Certificación de contador (cuenta propia) y comprobantes de pensiones o ayudas. Documentos con emisión no mayor a 1 mes.</p>
-
             <p><strong>Requisitos de Asignación:</strong> Solicitud 100% virtual en fechas habilitadas web. Estar admitido y empadronado; Residir en Costa Rica; No contar con título de Licenciatura/Posgrado ni beca de otra institución para la misma carrera.</p>
-
             <p><strong>Categorías y Porcentajes de Exoneración:</strong>
                 <ul>
                     <li><em>Categoría A:</em> 100% arancel de matrícula, cuota Federación, asignaturas y graduación.</li>
@@ -268,7 +243,6 @@ const UNIVERSIDADES = [
                     <li><em>Categoría E:</em> 25% cuota inscripción, asignaturas y graduación.</li>
                 </ul>
             </p>
-
             <p><strong>Permanencia Académica:</strong> Cobertura máxima de 12 asignaturas por año. Matricular y aprobar al menos 6 asignaturas al año. Si aprueba entre 3 y 5 materias, baja a la categoría inmediata inferior por 1 periodo. Vigencia hasta 6 años (renovable por 4 años más). Dispone de 1 año para matricular tras ser aprobada.</p>
         `,
         contacto: "Oficina de Atención Socioeconómica (OAS) - UNED, www.uned.ac.cr."
@@ -302,11 +276,8 @@ const UNIVERSIDADES = [
         ],
         beneficiosMigrantes: `
             <p><strong>Documentación Digital:</strong> Solicitud vía SISAE. Identificación: Cédula para mayores; TIM + cédula encargado para menores; <strong>DIMEX vigente para personas extranjeras</strong>. Plazo de 2 días hábiles para enviar documentos; Trabajo Social resuelve en 3 días naturales.</p>
-
             <p><strong>Requisitos Generales:</strong> Matrícula activa en curso INA o centro público/privado avalado. Condición de pobreza extrema, pobreza o vulnerabilidad (SINIRUBE / Estudio Social).</p>
-
             <p><strong>Conceptos Cubiertos por Becas INA:</strong> Transporte, Reubicación geográfica, Alimentación, Cuido de personas dependientes, Gastos personales, Conectividad, Productos de apoyo para discapacidad y Apoyo por desempleo.</p>
-
             <p><strong>Becas para Estudiantes Externos (Centros Públicos/Privados):</strong>
                 <ul>
                     <li><em>Elegibilidad:</em> Mayores de 15 años registrados en www.ane.cr en pobreza o vulnerabilidad. Personas desalentadas, desocupadas o con empleo informal.</li>
@@ -346,14 +317,12 @@ const UNIVERSIDADES = [
         ],
         beneficiosMigrantes: `
             <p><strong>Objetivo:</strong> Subsidios económicos para pago de matrícula y materias en centros universitarios y parauniversitarios públicos y privados de todo el país para personas en pobreza extrema, pobreza y vulnerabilidad según SINIRUBE.</p>
-
             <p><strong>Montos Mensuales de Subsidio:</strong>
                 <ul>
                     <li><strong>₡65.740:</strong> De 2 a 3 materias matriculadas por ciclo lectivo.</li>
                     <li><strong>₡105.330:</strong> De 4 materias en adelante por ciclo lectivo.</li>
                 </ul>
             </p>
-
             <p><strong>Requisitos de Solicitud (Art. 14, Inciso 5):</strong>
                 <ul>
                     <li>Constancia/Certificación de matrícula firmada y sellada con detalle de nombre, Cédula o DIMEX, materias, centro y carrera.</li>
@@ -363,7 +332,6 @@ const UNIVERSIDADES = [
                     <li>Si estudia en centro público: Constancia detallando si recibe beca institucional y monto.</li>
                 </ul>
             </p>
-
             <p><strong>Periodo:</strong> Solicitudes entre Enero y Febrero vía Módulo de Regionalización Digital (actualmente en pausa presupuestaria con lista de espera).</p>
         `,
         contacto: "Fuente: Ministerio de Educación Pública. (2026). Becas Postsecundaria. https://www.mep.go.cr/becas-postsecundaria"
@@ -397,11 +365,8 @@ const UNIVERSIDADES = [
         ],
         beneficiosMigrantes: `
             <p><strong>Población Beneficiaria:</strong> Líderes comunales, de cambio climático, emprendedores, defensores de DDHH, talentos deportivos, artísticos y <strong>personas refugiadas con alto potencial</strong>.</p>
-
             <p><strong>Compromisos de las Personas Becarias:</strong> Promedio académico mínimo >= 80%; Carga continua de cursos; Respetar Reglamento Estudiantil Y Política de Becas; Participar en servicio comunitario/clubes; Representar con orgullo a ULACIT.</p>
-
             <p><strong>Ecosistema de Apoyo:</strong> Student Success Center, acompañamiento psicosocial, laboratorios, clínicas y centros de innovación.</p>
-
             <p><strong>Pasos para Aplicar a la Beca ULACIT:</strong>
                 <ol>
                     <li>Promedio ponderado mínimo de 80% en calificaciones.</li>
@@ -443,7 +408,6 @@ const UNIVERSIDADES = [
         ],
         beneficiosMigrantes: `
             <p><strong>Ámbito Geográfico:</strong> Dirigido a estudiantes de la Zona Norte del país dentro de la zona de concesión de la Cooperativa.</p>
-
             <p><strong>Requisitos de Solicitud:</strong>
                 <ul>
                     <li>El padre, madre o responsable legal debe ser asociado activo de Coopelesca al día en sus obligaciones.</li>
@@ -452,7 +416,6 @@ const UNIVERSIDADES = [
                     <li>Haber aprobado el período académico inmediatamente anterior.</li>
                 </ul>
             </p>
-
             <p><strong>Periodo:</strong> Solicitudes en el mes de Noviembre de cada año.</p>
         `,
         contacto: "Teléfonos de contacto: 2401-2275 o 2401-2875 | Web: https://coopelesca.com/beneficios/becas/"
@@ -584,9 +547,12 @@ function renderUniversidades(listado) {
         return;
     }
 
+    const esUnicoResultado = listado.length === 1;
+
     listado.forEach(uni => {
         const card = document.createElement('div');
-        card.className = 'uni-card';
+        // Si hay un solo resultado, se le añade la clase 'single-card' para ocupar todo el ancho
+        card.className = `uni-card ${esUnicoResultado ? 'single-card' : ''}`;
         
         const carrerasHTML = uni.carreras.map(c => `<li>${c}</li>`).join('');
 
