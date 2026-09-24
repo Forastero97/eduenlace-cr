@@ -16,7 +16,7 @@
     --alert-text: #1864ab;
     --shadow-color: rgba(0, 0, 0, 0.08);
 
-    /* COLORES FIJOS DEL ENCABEZADO */
+    /* COLORES FIJOS ENCABEZADO Y PIE DE PÁGINA */
     --header-bg: #0f2b48;
     --header-text: #ffffff;
     --header-subtitle: #cbd5e1;
@@ -55,6 +55,9 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -62,6 +65,17 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    flex: 1;
+}
+
+/* Wrapper para integrar buscador y universidades */
+.universidades-wrapper {
+    margin-top: 10px;
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 8px var(--shadow-color);
 }
 
 /* =========================================================================
@@ -119,38 +133,21 @@ body {
 }
 
 /* =========================================================================
-   4. BUSCADOR
-   ========================================================================= */
-.search-section {
-    margin: 25px 0;
-}
-
-#input-busqueda {
-    width: 100%;
-    padding: 14px 20px;
-    font-size: 1rem;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    background-color: var(--card-bg);
-    color: var(--text-color);
-    outline: none;
-    transition: border-color 0.2s, background-color 0.3s;
-}
-
-#input-busqueda:focus {
-    border-color: var(--primary-color);
-}
-
-/* =========================================================================
-   5. FORMULARIO Y RESULTADOS POR CATEGORÍA
+   4. FORMULARIO POR CATEGORÍA MIGRATORIA
    ========================================================================= */
 .estatus-section {
-    margin-bottom: 35px;
+    margin-bottom: 30px;
     background-color: var(--card-bg);
     padding: 25px;
     border-radius: 10px;
     border: 1px solid var(--border-color);
+    box-shadow: 0 2px 8px var(--shadow-color);
     transition: background-color 0.3s;
+}
+
+.estatus-section h2 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
 }
 
 .form-group {
@@ -165,21 +162,23 @@ body {
 
 select {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     border-radius: 6px;
     border: 1px solid var(--border-color);
     background-color: var(--bg-color);
     color: var(--text-color);
+    font-size: 0.95rem;
 }
 
 .btn-submit {
     background-color: var(--primary-color);
     color: #fff;
     border: none;
-    padding: 10px 20px;
+    padding: 12px 24px;
     border-radius: 6px;
     cursor: pointer;
     font-weight: 600;
+    font-size: 0.95rem;
 }
 
 .btn-submit:hover {
@@ -188,7 +187,7 @@ select {
 
 .result-box {
     margin-top: 20px;
-    padding: 15px;
+    padding: 20px;
     background-color: var(--dropdown-bg);
     border-radius: 8px;
 }
@@ -196,6 +195,34 @@ select {
 .result-box ul {
     margin-top: 10px;
     padding-left: 20px;
+}
+
+/* =========================================================================
+   5. BUSCADOR INTEGRADO
+   ========================================================================= */
+.search-section {
+    margin-bottom: 20px;
+}
+
+.search-section h2 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+#input-busqueda {
+    width: 100%;
+    padding: 14px 20px;
+    font-size: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    outline: none;
+    transition: border-color 0.2s, background-color 0.3s;
+}
+
+#input-busqueda:focus {
+    border-color: var(--primary-color);
 }
 
 /* =========================================================================
@@ -208,13 +235,17 @@ select {
     margin-bottom: 15px;
 }
 
+.carousel-controls h3 {
+    font-size: 1.2rem;
+}
+
 .nav-btns {
     display: flex;
     gap: 10px;
 }
 
 .btn-nav {
-    background-color: var(--card-bg);
+    background-color: var(--bg-color);
     border: 1px solid var(--border-color);
     color: var(--text-color);
     padding: 8px 14px;
@@ -259,7 +290,7 @@ select {
     flex-shrink: 1;
 }
 
-/* Altura incrementada de la imagen a 240px */
+/* Altura de imagen a 240px */
 .uni-banner {
     width: 100%;
     height: 240px;
@@ -355,6 +386,30 @@ select {
 .contacto-text {
     font-size: 0.8rem;
     color: var(--text-muted);
+}
+
+/* =========================================================================
+   7. PIE DE PÁGINA (RESTITUIDO)
+   ========================================================================= */
+.main-footer {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    padding: 25px 0;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    font-size: 0.9rem;
+}
+
+.footer-subtext {
+    font-size: 0.8rem;
+    color: var(--header-subtitle);
+    margin-top: 6px;
 }
 
 .hidden {
