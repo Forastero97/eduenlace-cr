@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <!-- Encabezado Principal con Colores Fijos -->
+    <!-- Encabezado Principal -->
     <header class="main-header">
         <div class="header-content">
             <div class="brand-title">
@@ -22,12 +22,7 @@
     </header>
 
     <main class="container">
-        <!-- Buscador general -->
-        <section class="search-section">
-            <input type="text" id="input-busqueda" placeholder="🔍 Buscar por universidad, carrera o requisito..." aria-label="Buscador general">
-        </section>
-
-        <!-- Formulario de Consulta por Categoría Migratoria (Reordenado aquí) -->
+        <!-- 1. Consulta por Categoría Migratoria (SIEMPRE PRIMERO) -->
         <section class="estatus-section">
             <h2>Consulta por Estatus / Categoría Migratoria</h2>
             <form id="form-estatus">
@@ -52,20 +47,37 @@
             </div>
         </section>
 
-        <!-- Carrusel / Galería de Instituciones -->
-        <section class="carousel-section">
-            <div class="carousel-controls">
-                <h2>Instituciones Destacadas</h2>
-                <div class="nav-btns">
-                    <button id="btn-prev" class="btn-nav" aria-label="Anterior">◄</button>
-                    <button id="btn-next" class="btn-nav" aria-label="Siguiente">►</button>
+        <!-- Bloque Integrado: Filtro de Búsqueda y Lista de Universidades Juntos -->
+        <div class="universidades-wrapper">
+            <!-- 2. Buscador general de universidades -->
+            <section class="search-section">
+                <h2>Búsqueda de Instituciones y Carreras</h2>
+                <input type="text" id="input-busqueda" placeholder="🔍 Buscar por universidad, carrera o requisito..." aria-label="Buscador general">
+            </section>
+
+            <!-- 3. Carrusel / Galería de Instituciones -->
+            <section class="carousel-section">
+                <div class="carousel-controls">
+                    <h3>Instituciones Destacadas</h3>
+                    <div class="nav-btns">
+                        <button id="btn-prev" class="btn-nav" aria-label="Anterior">◄</button>
+                        <button id="btn-next" class="btn-nav" aria-label="Siguiente">►</button>
+                    </div>
                 </div>
-            </div>
-            <div id="carousel-track" class="carousel-track">
-                <!-- Se renderiza dinámicamente desde script.js -->
-            </div>
-        </section>
+                <div id="carousel-track" class="carousel-track">
+                    <!-- Se renderiza dinámicamente desde script.js -->
+                </div>
+            </section>
+        </div>
     </main>
+
+    <!-- Pie de Página Informativo -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>Guía de Educación Superior y Becas en Costa Rica &copy; 2026</p>
+            <p class="footer-subtext">Plataforma informativa desarrollada en Costa Rica para la orientación académica, migratoria e inclusión socioeconómica estudiantil.</p>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
