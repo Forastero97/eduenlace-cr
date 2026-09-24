@@ -636,7 +636,6 @@ function renderUniversidades(listado) {
     });
 }
 
-// Expandir/plegar tarjeta
 window.toggleCard = function(button) {
     const card = button.closest('.uni-card');
     card.classList.toggle('expanded');
@@ -648,7 +647,6 @@ window.toggleCard = function(button) {
     }
 };
 
-// Mostrar/ocultar oferta académica
 window.toggleCarreras = function(button) {
     const collapsible = button.nextElementSibling;
     collapsible.classList.toggle('hidden');
