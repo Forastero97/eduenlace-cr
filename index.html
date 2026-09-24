@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EduEnlace CR - Guía Completa de Becas y Orientación Universitaria</title>
+    <title>EduEnlace CR - Guía Completa de Becas y Orientación Universitaria</title>
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
@@ -11,20 +11,27 @@
     <header class="main-header">
         <div class="nav-bar">
             <div class="logo">EduEnlace <span class="sub-logo">CR</span></div>
-            <span class="tagline">Guía Completa sobre información de Becas y Orientación Universitaria en Costa Rica</span>
+            <span class="tagline">Guía Completa sobre información de Becas y Orientación Universitaria en Costa Rica</span>
         </div>
     </header>
 
     <main class="main-content">
-        <!-- Sección 1: Consulta por Identificación -->
+        <!-- Sección 1: Consulta por Categoría Migratoria -->
         <section class="section-card">
-            <h2 class="section-title">💡 Consulta de Beneficios por Identificación y Estatus</h2>
+            <h2 class="section-title">💡 Consulta de Beneficios por Categoría Migratoria</h2>
             <p class="section-subtitle">
-                Ingresa tu tipo o número de documento (DIMEX, Solicitud de Refugio, Cédula o Estatus Migratorio) para desplegar todos los derechos, categorías y requisitos aplicables según la normativa vigente de cada institución.
+                Selecciona tu categoría o estatus migratorio en Costa Rica para desplegar todos los derechos, exenciones de matrícula, categorías socioeconómicas y requisitos específicos según la normativa oficial de cada institución.
             </p>
             
             <form id="form-estatus" class="form-inline">
-                <input type="text" id="input-documento" placeholder="Ej. DIMEX, Refugio, Cédula o número de documento" required>
+                <select id="select-categoria" required class="input-select">
+                    <option value="" disabled selected>-- Selecciona tu Categoría Migratoria --</option>
+                    <option value="residencia">Residencia Permanente / Persona Regularizada (DIMEX)</option>
+                    <option value="refugiado">Refugiado Aprobado (Estatus Oficial de Refugio)</option>
+                    <option value="solicitante">Solicitante de Refugio (Carnet / Documento en Trámite)</option>
+                    <option value="categoria_especial">Categoría Especial / Tratados Internacionales (CA, Caribe, Sudamérica)</option>
+                    <option value="internacional">Estudiante Internacional / Visa Estudiantil / Sin Regularizar</option>
+                </select>
                 <button type="submit" class="button-primary">Consultar Derechos</button>
             </form>
 
