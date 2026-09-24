@@ -460,7 +460,7 @@ const UNIVERSIDADES = [
 ];
 
 /**
- * Diccionario de beneficios por Categoría Migratoria en Costa Rica
+ * Diccionario de beneficios por Categoría Migratoria
  */
 const BENEFICIOS_POR_CATEGORIA = {
     residencia: {
@@ -530,20 +530,55 @@ const resultTitle = document.getElementById('result-title');
 const resultDescription = document.getElementById('result-description');
 const resultList = document.getElementById('result-list');
 
+const btnThemeToggle = document.getElementById('btn-theme-toggle');
+const themeIcon = document.getElementById('theme-icon');
+const themeText = document.getElementById('theme-text');
+
 /**
  * =========================================================================
- * 3. FUNCIONES DE RENDERIZADO CON MENÚ "OFERTA ACADÉMICA"
+ * 3. LÓGICA DE MODO CLARO / MODO OSCURO
  * =========================================================================
  */
+const savedTheme = localStorage.getItem('theme');
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
+if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+    document.body.classList.add('dark-mode');
+    if (themeIcon && themeText) {
+        themeIcon.textContent = '☀️';
+        themeText.textContent = 'Modo Claro';
+    }
+}
+
+if (btnThemeToggle) {
+    btnThemeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        const isDark = document.body.classList.contains('dark-mode');
+
+        if (isDark) {
+            themeIcon.textContent = '☀️';
+            themeText.textContent = 'Modo Claro';
+            localStorage.setItem('theme', 'dark');
+        } else {
+            themeIcon.textContent = '🌙';
+            themeText.textContent = 'Modo Oscuro';
+            localStorage.setItem('theme', 'light');
+        }
+    });
+}
+
+/**
+ * =========================================================================
+ * 4. FUNCIONES DE RENDERIZADO
+ * =========================================================================
+ */
 function renderUniversidades(listado) {
     carouselTrack.innerHTML = ''; 
 
     if (listado.length === 0) {
         carouselTrack.innerHTML = `
-            <p class="no-results">
-                ❌ No se encontraron instituciones o carreras que coincidan con "<strong>${inputBusqueda.value}</strong>".<br>
-                Intenta con términos como: <em>Sistemas, Medicina, UCR, UNA, TEC, UTN, INA, Refugio o DIMEX</em>.
+            <p class="no-results" style="padding: 20px;">
+                ❌ No se encontraron instituciones o carreras que coincidan con "<strong>${inputBusqueda.value}</strong>".
             </p>
         `;
         return;
@@ -576,7 +611,6 @@ function renderUniversidades(listado) {
             <div class="uni-collapsible">
                 <div class="uni-body">
                     
-                    <!-- Botón desplegable para Oferta Académica (Texto simplificado) -->
                     <div class="carreras-dropdown-container">
                         <button type="button" class="btn-carreras-toggle" onclick="toggleCarreras(this)">
                             <span>🎓 Oferta académica</span> ▶
@@ -602,7 +636,7 @@ function renderUniversidades(listado) {
     });
 }
 
-// Función global para expandir/plegar tarjeta institucional
+// Expandir/plegar tarjeta
 window.toggleCard = function(button) {
     const card = button.closest('.uni-card');
     card.classList.toggle('expanded');
@@ -614,7 +648,7 @@ window.toggleCard = function(button) {
     }
 };
 
-// Función global para mostrar/ocultar la oferta académica
+// Mostrar/ocultar oferta académica
 window.toggleCarreras = function(button) {
     const collapsible = button.nextElementSibling;
     collapsible.classList.toggle('hidden');
@@ -628,10 +662,9 @@ window.toggleCarreras = function(button) {
 
 /**
  * =========================================================================
- * 4. LÓGICA DE CONTROL DEL CARRUSEL Y NAVEGACIÓN
+ * 5. NAVEGACIÓN Y BÚSQUEDA
  * =========================================================================
  */
-
 btnNext.addEventListener('click', () => {
     const cardWidth = carouselTrack.querySelector('.uni-card')?.offsetWidth || 300;
     carouselTrack.scrollBy({ left: cardWidth + 20, behavior: 'smooth' });
@@ -641,12 +674,6 @@ btnPrev.addEventListener('click', () => {
     const cardWidth = carouselTrack.querySelector('.uni-card')?.offsetWidth || 300;
     carouselTrack.scrollBy({ left: -(cardWidth + 20), behavior: 'smooth' });
 });
-
-/**
- * =========================================================================
- * 5. BUSCADOR EN TIEMPO REAL
- * =========================================================================
- */
 
 function normalizarTexto(texto) {
     if (!texto) return '';
@@ -684,10 +711,9 @@ inputBusqueda.addEventListener('input', (e) => {
 
 /**
  * =========================================================================
- * 6. FORMULARIO DE CONSULTA POR CATEGORÍA MIGRATORIA
+ * 6. FORMULARIO POR CATEGORÍA
  * =========================================================================
  */
-
 formEstatus.addEventListener('submit', (e) => {
     e.preventDefault();
     
