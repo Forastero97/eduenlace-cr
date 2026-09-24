@@ -3,36 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EduEnlace CR - Guía Completa de Becas y Orientación Universitaria</title>
-    <link rel="stylesheet" href="./style.css">
+    <title>Guía de Educación Superior y Becas</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- Encabezado con selector de Modo Claro/Oscuro -->
     <header class="main-header">
-        <div class="nav-bar">
-            <div class="logo">EduEnlace <span class="sub-logo">CR</span></div>
-            <span class="tagline">Guía Completa sobre información de Becas y Orientación Universitaria en Costa Rica</span>
+        <div class="header-content">
+            <h1>Guía de Opciones Educativas y Becas</h1>
+            <button id="btn-theme-toggle" class="theme-toggle-btn" type="button" aria-label="Cambiar tema">
+                <span id="theme-icon">🌙</span> <span id="theme-text">Modo Oscuro</span>
+            </button>
         </div>
     </header>
 
-    <main class="main-content">
-        <!-- Sección 1: Consulta por Categoría Migratoria -->
-        <section class="section-card">
-            <h2 class="section-title">💡 Consulta de Beneficios por Categoría Migratoria</h2>
-            <p class="section-subtitle">
-                Selecciona tu categoría o estatus migratorio en Costa Rica para desplegar todos los derechos, exenciones de matrícula, categorías socioeconómicas y requisitos específicos según la normativa oficial de cada institución.
-            </p>
-            
-            <form id="form-estatus" class="form-inline">
-                <select id="select-categoria" required class="input-select">
-                    <option value="" disabled selected>-- Selecciona tu Categoría Migratoria --</option>
-                    <option value="residencia">Residencia Permanente / Persona Regularizada (DIMEX)</option>
-                    <option value="refugiado">Refugiado Aprobado (Estatus Oficial de Refugio)</option>
-                    <option value="solicitante">Solicitante de Refugio (Carnet / Documento en Trámite)</option>
-                    <option value="categoria_especial">Categoría Especial / Tratados Internacionales (CA, Caribe, Sudamérica)</option>
-                    <option value="internacional">Estudiante Internacional / Visa Estudiantil / Sin Regularizar</option>
-                </select>
-                <button type="submit" class="button-primary">Consultar Derechos</button>
+    <main class="container">
+        <!-- Buscador general -->
+        <section class="search-section">
+            <input type="text" id="input-busqueda" placeholder="🔍 Buscar por universidad, carrera o requisito..." aria-label="Buscador general">
+        </section>
+
+        <!-- Carrusel / Galería de Instituciones -->
+        <section class="carousel-section">
+            <div class="carousel-controls">
+                <h2>Instituciones Destacadas</h2>
+                <div class="nav-btns">
+                    <button id="btn-prev" class="btn-nav" aria-label="Anterior">◄</button>
+                    <button id="btn-next" class="btn-nav" aria-label="Siguiente">►</button>
+                </div>
+            </div>
+            <div id="carousel-track" class="carousel-track">
+                <!-- Se renderiza dinámicamente desde script.js -->
+            </div>
+        </section>
+
+        <!-- Formulario de Consulta por Categoría Migratoria -->
+        <section class="estatus-section">
+            <h2>Consulta por Estatus / Categoría Migratoria</h2>
+            <form id="form-estatus">
+                <div class="form-group">
+                    <label for="select-categoria">Selecciona tu condición en Costa Rica:</label>
+                    <select id="select-categoria" required>
+                        <option value="" disabled selected>-- Selecciona una categoría --</option>
+                        <option value="residencia">Residencia Permanente / Regularizado (DIMEX)</option>
+                        <option value="refugiado">Refugiado Aprobado</option>
+                        <option value="solicitante">Solicitante de Refugio (Documento en trámite)</option>
+                        <option value="categoria_especial">Régimen Especial / Tratados (CA, Caribe, México, Sudamérica)</option>
+                        <option value="internacional">Estudiante Internacional / Visa Estudiantil / Sin Regularizar</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-submit">Consultar Beneficios</button>
             </form>
 
             <div id="result-box" class="result-box hidden">
@@ -41,31 +62,8 @@
                 <ul id="result-list"></ul>
             </div>
         </section>
-
-        <!-- Sección 2: Buscador y Carrusel Estilo Instagram -->
-        <section class="section-card">
-            <h2 class="section-title">🔍 Buscador de Instituciones Educativas</h2>
-            <p class="section-subtitle">Filtra por universidad, carrera o requisito. Desplázate horizontalmente con las flechas o deslizando en pantalla táctil.</p>
-            
-            <input type="text" id="input-busqueda" placeholder="Buscar por institución, carrera (ej. Sistemas, Medicina), código o beca..." class="input-full">
-            
-            <!-- Estructura del Carrusel -->
-            <div class="carousel-container">
-                <button id="btn-prev" class="carousel-arrow left-arrow" aria-label="Anterior">❮</button>
-                
-                <div id="carousel-track" class="carousel-track">
-                    <!-- Las tarjetas se inyectan dinámicamente desde JS -->
-                </div>
-
-                <button id="btn-next" class="carousel-arrow right-arrow" aria-label="Siguiente">❯</button>
-            </div>
-        </section>
     </main>
 
-    <footer class="main-footer">
-        <p>© 2026 EduEnlace Costa Rica - Sistema de Información de Becas Estudiantiles para la Educación Superior y Técnica.</p>
-    </footer>
-
-    <script src="./script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
