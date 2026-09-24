@@ -1,6 +1,6 @@
 /**
  * =========================================================================
- * 1. BASE DE DATOS COMPLETA CON IMÁGENES REALES DE INSTITUCIONES Y DATOS PDF
+ * 1. BASE DE DATOS COMPLETA CON 20 CARRERAS Y DATOS NORMATIVOS OFICIALES
  * =========================================================================
  */
 const UNIVERSIDADES = [
@@ -19,7 +19,17 @@ const UNIVERSIDADES = [
             "Sociología",
             "Pedagogía con especialidad en Educación Primaria",
             "Comercio y Negocios Internacionales",
-            "Arte y Comunicación Visual"
+            "Arte y Comunicación Visual",
+            "Ingeniería en Agronomía",
+            "Economía",
+            "Enfermería",
+            "Geografía",
+            "Ingeniería Forestal",
+            "Educación Física y Deportes",
+            "Danza",
+            "Música con Énfasis en Ejecución o Enseñanza",
+            "Psicología",
+            "Traducción e Interpretación Francés-Español"
         ],
         beneficiosMigrantes: `
             <p><strong>Población Elegible:</strong> Costarricenses por nacimiento o naturalización; Centroamericanos y del Caribe con condición migratoria vigente de residente permanente, refugiado o solicitante de refugio; Estudiantes extranjeras de México y Sudamérica con condición migratoria vigente de residente permanente, refugiado o solicitante de refugio (se resuelve según posibilidades presupuestarias)[cite: 8].</p>
@@ -78,7 +88,17 @@ const UNIVERSIDADES = [
             "Farmacia",
             "Ingeniería Eléctrica",
             "Psicología",
-            "Contaduría Pública"
+            "Contaduría Pública",
+            "Odontología",
+            "Ingeniería Civil",
+            "Ingeniería Química",
+            "Biología",
+            "Dirección de Empresas",
+            "Trabajo Social",
+            "Nutrición",
+            "Geología",
+            "Artes Plásticas",
+            "Ingeniería Agronómica"
         ],
         beneficiosMigrantes: `
             <p><strong>Marco General:</strong> Reglamento de Adjudicación de Becas a la Población Estudiantil[cite: 8].</p>
@@ -122,7 +142,17 @@ const UNIVERSIDADES = [
             "Administración de Empresas",
             "Ingeniería Ambiental",
             "Ingeniería Agrícola",
-            "Diseño Industrial"
+            "Diseño Industrial",
+            "Ingeniería en Materiales",
+            "Ingeniería en Mantenimiento Industrial",
+            "Ingeniería en Seguridad Laboral e Higiene Ambiental",
+            "Ingeniería Forestal",
+            "Ingeniería en Física",
+            "Administración de Tecnologías de Información",
+            "Ingeniería en Computadores",
+            "Gestión del Turismo Sostenible",
+            "Ingeniería Agronegocios",
+            "Enseñanza de la Matemática Asistida por Computadora"
         ],
         beneficiosMigrantes: `
             <p><strong>Documentación de Identidad:</strong> Costarricenses: copia de cédula del grupo familiar Y del estudiante[cite: 8]. Extranjeros en condición regular: DIMEX vigente[cite: 8].</p>
@@ -162,7 +192,17 @@ const UNIVERSIDADES = [
             "Ingeniería en Salud Ocupacional y Ambiente",
             "Gestión de Redes y Sistemas Operativos",
             "Diseño Gráfico",
-            "Ingeniería en Acuicultura"
+            "Ingeniería en Acuicultura",
+            "Gestión y Dirección de Empresas Turísticas",
+            "Ingeniería en Agronomía",
+            "Ingeniería en Producción Industrial",
+            "Gestión Ecoturística",
+            "Ingeniería en Calidad",
+            "Comercio Exterior",
+            "Asistencia Administrativa",
+            "Gestión de Recursos Humanos",
+            "Tecnología Alimentaria",
+            "Ingeniería en Electromecánica"
         ],
         beneficiosMigrantes: `
             <p><strong>Marco Reglamentario:</strong> Reglamento del Sistema de Becas y Beneficios Estudiantiles de la UTN[cite: 8].</p>
@@ -202,7 +242,17 @@ const UNIVERSIDADES = [
             "Educación Preescolar",
             "Administración de Servicios de Salud",
             "Ingeniería Industrial",
-            "Manejo de Recursos Naturales"
+            "Manejo de Recursos Naturales",
+            "Educación Especial",
+            "Gestión Municipal",
+            "Ingeniería Agronómica",
+            "Registros y Estadísticas de Salud",
+            "Administración Policial",
+            "Enseñanza del Inglés",
+            "Gestión y Administración Ambiental",
+            "Ciencias Policiales",
+            "Estudios Generales",
+            "Enseñanza de las Ciencias Naturales"
         ],
         beneficiosMigrantes: `
             <p><strong>Documentación Requerida UNED:</strong> Identificación vigente; Constancias salariales/orden patronal (asalariados); Declaraciones juradas de ingresos (informales); Certificación de contador (cuenta propia) y comprobantes de pensiones o ayudas[cite: 8]. Documentos con emisión no mayor a 1 mes[cite: 8].</p>
@@ -238,7 +288,17 @@ const UNIVERSIDADES = [
             "Técnico en Logística e Inventarios",
             "Técnico en Soporte de Redes y TI",
             "Técnico en Estética y Belleza Integral",
-            "Técnico en Contabilidad y Finanzas"
+            "Técnico en Contabilidad y Finanzas",
+            "Técnico en Diseño y Desarrollo Web",
+            "Técnico en Soldadura Industrial",
+            "Técnico en Electrónica Industrial",
+            "Técnico en Operaciones Agrícolas",
+            "Técnico en Control de Calidad",
+            "Técnico en Mercadeo Digital y Ventas",
+            "Técnico en Asistencia Administrativa",
+            "Técnico en Manipulación Higiénica de Alimentos",
+            "Técnico en Mecanizado Industrial",
+            "Técnico en Mantenimiento de Sistemas Informáticos"
         ],
         beneficiosMigrantes: `
             <p><strong>Documentación Digital:</strong> Solicitud vía SISAE[cite: 8]. Identificación: Cédula para mayores; TIM + cédula encargado para menores; <strong>DIMEX vigente para personas extranjeras</strong>[cite: 8]. Plazo de 2 días hábiles para enviar documentos; Trabajo Social resuelve en 3 días naturales[cite: 8].</p>
@@ -272,7 +332,17 @@ const UNIVERSIDADES = [
             "Carreras del Área de Salud y Enfermería",
             "Carreras de Educación y Pedagogía",
             "Carreras de Ingeniería y Tecnología",
-            "Carreras de Ciencias Económicas"
+            "Carreras de Ciencias Económicas",
+            "Técnicos Superiores en Informática",
+            "Técnicos Superiores en Administración",
+            "Carreras de Innovación Tecnológica",
+            "Diplomados en Gastronomía y Turismo",
+            "Carreras de Ciencias Sociales",
+            "Programas de Desarrollo Agropecuario",
+            "Especialidades Técnicas Industriales",
+            "Licenciaturas en Gestión Ambiental",
+            "Carreras de Diseño y Comunicación Digital",
+            "Diplomados en Salud Ocupacional"
         ],
         beneficiosMigrantes: `
             <p><strong>Objetivo:</strong> Subsidios económicos para pago de matrícula y materias en centros universitarios y parauniversitarios públicos y privados de todo el país para personas en pobreza extrema, pobreza y vulnerabilidad según SINIRUBE[cite: 8].</p>
@@ -313,7 +383,17 @@ const UNIVERSIDADES = [
             "Mercadeo con énfasis en Medios Digitales",
             "Diseño e Interacción Digital",
             "Criminología",
-            "Psicología"
+            "Psicología",
+            "Ingeniería Biomédica",
+            "Ingeniería en Ciberseguridad",
+            "Especialidad en Ortodoncia y Ortopedia Funcional",
+            "Ingeniería en Circuitos y Sistemas Electrónicos",
+            "Contaduría Pública",
+            "Publicidad con énfasis en Producción Digital",
+            "Administración Hotelera",
+            "Ingeniería Química",
+            "Enseñanza del Inglés",
+            "Maestría en Administración de Empresas (MBA)"
         ],
         beneficiosMigrantes: `
             <p><strong>Población Beneficiaria:</strong> Líderes comunales, de cambio climático, emprendedores, defensores de DDHH, talentos deportivos, artísticos y <strong>personas refugiadas con alto potencial</strong>[cite: 8].</p>
@@ -342,14 +422,24 @@ const UNIVERSIDADES = [
         carreras: [
             "Carreras Universitarias en Sedes Regionales de la Zona Norte (UCR, UNA, UTN, ITCR San Carlos)",
             "Carreras Parauniversitarias y Técnicas Regionales",
-            "Educación Secundaria Técnica Agrópecuaria y del Sector Servicios",
+            "Educación Secundaria Técnica Agropecuaria y del Sector Servicios",
             "Educación Secundaria Académica",
             "Educación en Centros Educativos Cooperativos",
             "Educación Primaria Completa",
             "Técnicos Agroindustriales",
             "Técnicos en Electricidad y Energías Renovables",
             "Técnicos en Administración Empresarial",
-            "Técnicos en Informática y Redes"
+            "Técnicos en Informática y Redes",
+            "Técnicos en Gestión Ambiental Regional",
+            "Técnicos en Mecánica Agroindustrial",
+            "Técnicos en Ecoturismo y Guía Local",
+            "Técnicos en Agroecología",
+            "Técnicos en Salud Ocupacional",
+            "Técnicos en Mantenimiento Eléctrico",
+            "Técnicos en Producción Ganadera Sostenible",
+            "Técnicos en Logística y Almacenamiento",
+            "Técnicos en Contabilidad y Finanzas Rurales",
+            "Técnicos en Operaciones Turísticas"
         ],
         beneficiosMigrantes: `
             <p><strong>Ámbito Geográfico:</strong> Dirigido a estudiantes de la Zona Norte del país dentro de la zona de concesión de la Cooperativa[cite: 8].</p>
@@ -442,7 +532,7 @@ const resultList = document.getElementById('result-list');
 
 /**
  * =========================================================================
- * 3. FUNCIONES DE RENDERIZADO DEL CARRUSEL Y DESPLEGABLES
+ * 3. FUNCIONES DE RENDERIZADO CON DESPLEGABLE EN OFERTA ACADÉMICA
  * =========================================================================
  */
 
@@ -474,19 +564,27 @@ function renderUniversidades(listado) {
             </div>
 
             <div class="uni-preview">
-                <p>Opciones de becas socioeconómicas, oportunidades de ingreso y carreras destacadas disponibles para postulación.</p>
+                <p>Opciones de becas socioeconómicas, oportunidades de ingreso y 20 carreras destacadas disponibles para postulación.</p>
             </div>
 
             <div class="btn-toggle-container">
                 <button type="button" class="btn-toggle" onclick="toggleCard(this)">
-                    <span>Ver más información</span> ▼
+                    <span>Ver más información institucional</span> ▼
                 </button>
             </div>
 
             <div class="uni-collapsible">
                 <div class="uni-body">
-                    <h4>Oferta académica</h4>
-                    <ul class="carreras-ul">${carrerasHTML}</ul>
+                    
+                    <!-- Botón desplegable independiente para la Oferta Académica (20 carreras) -->
+                    <div class="carreras-dropdown-container">
+                        <button type="button" class="btn-carreras-toggle" onclick="toggleCarreras(this)">
+                            <span>🎓 Oferta académica (20 carreras destacadas)</span> ▶
+                        </button>
+                        <div class="carreras-collapsible hidden">
+                            <ul class="carreras-ul">${carrerasHTML}</ul>
+                        </div>
+                    </div>
                     
                     <div class="alert-box">
                         <strong>📄 Información Reglamentaria y Normativa Completa:</strong>
@@ -504,15 +602,27 @@ function renderUniversidades(listado) {
     });
 }
 
-// Función global para expandir/plegar tarjeta individualmente
+// Función global para expandir/plegar tarjeta institucional
 window.toggleCard = function(button) {
     const card = button.closest('.uni-card');
     card.classList.toggle('expanded');
     
     if (card.classList.contains('expanded')) {
-        button.innerHTML = '<span>Ver menos información</span> ▲';
+        button.innerHTML = '<span>Ver menos información institucional</span> ▲';
     } else {
-        button.innerHTML = '<span>Ver más información</span> ▼';
+        button.innerHTML = '<span>Ver más información institucional</span> ▼';
+    }
+};
+
+// Función global para mostrar/ocultar la lista de 20 carreras
+window.toggleCarreras = function(button) {
+    const collapsible = button.nextElementSibling;
+    collapsible.classList.toggle('hidden');
+    
+    if (collapsible.classList.contains('hidden')) {
+        button.innerHTML = '<span>🎓 Oferta académica (20 carreras destacadas)</span> ▶';
+    } else {
+        button.innerHTML = '<span>🎓 Oferta académica (20 carreras destacadas)</span> ▼';
     }
 };
 
@@ -538,7 +648,6 @@ btnPrev.addEventListener('click', () => {
  * =========================================================================
  */
 
-// Función para remover tildes y diacríticos de cualquier texto
 function normalizarTexto(texto) {
     if (!texto) return '';
     return texto
@@ -555,11 +664,9 @@ inputBusqueda.addEventListener('input', (e) => {
         return;
     }
 
-    // Divide la búsqueda por espacios en palabras individuales
     const palabrasClave = terminoLimpio.split(/\s+/);
 
     const filtradas = UNIVERSIDADES.filter(uni => {
-        // Normaliza todo el contenido relevante de la tarjeta
         const textoCompletoTarjeta = normalizarTexto(`
             ${uni.nombre} 
             ${uni.tipo} 
@@ -568,7 +675,6 @@ inputBusqueda.addEventListener('input', (e) => {
             ${uni.contacto}
         `);
 
-        // Comprueba si CADA palabra clave buscada está presente
         return palabrasClave.every(palabra => textoCompletoTarjeta.includes(palabra));
     });
     
