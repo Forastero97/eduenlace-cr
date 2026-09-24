@@ -534,21 +534,42 @@ btnPrev.addEventListener('click', () => {
 
 /**
  * =========================================================================
- * 5. BUSCADOR EN TIEMPO REAL
+ * 5. BUSCADOR EN TIEMPO REAL (FLEXIBLE A TILDES Y ERRORES DE ORTOGRAFÍA)
  * =========================================================================
  */
 
+// Función para remover tildes y diacríticos de cualquier texto
+function normalizarTexto(texto) {
+    if (!texto) return '';
+    return texto
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+}
+
 inputBusqueda.addEventListener('input', (e) => {
-    const termino = e.target.value.toLowerCase().trim();
+    const terminoLimpio = normalizarTexto(e.target.value.trim());
     
+    if (!terminoLimpio) {
+        renderUniversidades(UNIVERSIDADES);
+        return;
+    }
+
+    // Divide la búsqueda por espacios en palabras individuales
+    const palabrasClave = terminoLimpio.split(/\s+/);
+
     const filtradas = UNIVERSIDADES.filter(uni => {
-        const coincideNombre = uni.nombre.toLowerCase().includes(termino);
-        const coincideTipo = uni.tipo.toLowerCase().includes(termino);
-        const coincideCarreras = uni.carreras.some(c => c.toLowerCase().includes(termino));
-        const coincideDetalle = uni.beneficiosMigrantes.toLowerCase().includes(termino);
-        const coincideContacto = uni.contacto.toLowerCase().includes(termino);
-        
-        return coincideNombre || coincideTipo || coincideCarreras || coincideDetalle || coincideContacto;
+        // Normaliza todo el contenido relevante de la tarjeta
+        const textoCompletoTarjeta = normalizarTexto(`
+            ${uni.nombre} 
+            ${uni.tipo} 
+            ${uni.carreras.join(' ')} 
+            ${uni.beneficiosMigrantes} 
+            ${uni.contacto}
+        `);
+
+        // Comprueba si CADA palabra clave buscada está presente
+        return palabrasClave.every(palabra => textoCompletoTarjeta.includes(palabra));
     });
     
     renderUniversidades(filtradas);
