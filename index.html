@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guía de Educación Superior y Becas en Costa Rica</title>
+    <title>Migrando oportunidades - Guía de Educación Superior y Becas</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,18 +11,33 @@
     <!-- Encabezado Principal -->
     <header class="main-header">
         <div class="header-content">
-            <div class="brand-title">
-                <h1>Guía de Educación Superior y Becas en Costa Rica</h1>
-                <p class="subtitle">Opciones de ingreso, carreras y beneficios socioeconómicos para la población migrante en Costa Rica.</p>
+            <div class="brand-container">
+                <div class="logo-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                        <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                    </svg>
+                </div>
+                <div class="brand-title">
+                    <h1>Migrando oportunidades</h1>
+                    <p class="subtitle">Opciones de ingreso, carreras y beneficios socioeconómicos en Costa Rica</p>
+                </div>
             </div>
-            <button id="btn-theme-toggle" class="theme-toggle-btn" type="button" aria-label="Cambiar tema">
-                <span id="theme-icon">🌙</span> <span id="theme-text">Modo Oscuro</span>
-            </button>
+
+            <div class="header-actions">
+                <!-- Imagen Adjunta Superior -->
+                <div class="header-attached-image">
+                    <img src="Logo migrando oportunidades.jpeg" alt="Logo Migrando Oportunidades" class="top-logo-img">
+                </div>
+                <button id="btn-theme-toggle" class="theme-toggle-btn" type="button" aria-label="Cambiar tema">
+                    <span id="theme-icon">🌙</span> <span id="theme-text">Modo Oscuro</span>
+                </button>
+            </div>
         </div>
     </header>
 
     <main class="container">
-        <!-- 1. Consulta por Categoría Migratoria (SIEMPRE PRIMERO) -->
+        <!-- 1. Consulta por Categoría Migratoria -->
         <section class="estatus-section">
             <h2>Consulta por Estatus / Categoría Migratoria</h2>
             <form id="form-estatus">
@@ -33,7 +48,8 @@
                         <option value="residencia">Residencia Permanente / Regularizado (DIMEX)</option>
                         <option value="refugiado">Refugiado Aprobado</option>
                         <option value="solicitante">Solicitante de Refugio (Documento en trámite)</option>
-                        <option value="categoria_especial">Régimen Especial / Tratados (CA, Caribe, México, Sudamérica)</option>
+                        <option value="categoria_especial">Régimen Especial / Categoria Especial / Convenios</option>
+                        <option value="coopelesca">Asociado Coopelesca (Zona Norte / San Carlos)</option>
                         <option value="internacional">Estudiante Internacional / Visa Estudiantil / Sin Regularizar</option>
                     </select>
                 </div>
@@ -47,15 +63,15 @@
             </div>
         </section>
 
-        <!-- Bloque Integrado: Filtro de Búsqueda y Lista de Universidades Juntos -->
+        <!-- Bloque Integrado: Filtro de Búsqueda y Carrusel de Universidades -->
         <div class="universidades-wrapper">
-            <!-- 2. Buscador general de universidades -->
+            <!-- Buscador general de universidades -->
             <section class="search-section">
                 <h2>Búsqueda de Instituciones y Carreras</h2>
                 <input type="text" id="input-busqueda" placeholder="🔍 Buscar por universidad, carrera o requisito..." aria-label="Buscador general">
             </section>
 
-            <!-- 3. Carrusel / Galería de Instituciones -->
+            <!-- Carrusel / Galería de Instituciones -->
             <section class="carousel-section">
                 <div class="carousel-controls">
                     <h3>Instituciones Destacadas</h3>
@@ -71,10 +87,10 @@
         </div>
     </main>
 
-    <!-- Pie de Página Informativo -->
+    <!-- Pie de Página -->
     <footer class="main-footer">
         <div class="footer-content">
-            <p>Guía de Educación Superior y Becas en Costa Rica &copy; 2026</p>
+            <p>Migrando oportunidades &copy; 2026</p>
             <p class="footer-subtext">Plataforma informativa desarrollada en Costa Rica para la orientación académica, migratoria e inclusión socioeconómica estudiantil.</p>
         </div>
     </footer>
