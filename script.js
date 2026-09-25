@@ -56,6 +56,7 @@ const UNIVERSIDADES = [
             "Farmacia",
             "Ingeniería Eléctrica",
             "Psicología",
+            "Antropologia",
             "Contaduría Pública",
             "Odontología",
             "Ingeniería Civil",
