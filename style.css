@@ -3,13 +3,13 @@
    ========================================================================= */
 :root {
     /* --- PALETA EN MODO CLARO --- */
-    --blue-dark: #0f2b48;     /* Azul Oscuro: Encabezados y Footer */
-    --blue-medium: #1d72f3;   /* Azul Medio: Botones primarios e interactivos */
-    --blue-light: #e7f5ff;    /* Azul Claro: Fondos de alerta y resaltados */
+    --blue-dark: #0f2b48;     /* Azul Oscuro */
+    --blue-medium: #1d72f3;   /* Azul Medio */
+    --blue-light: #e7f5ff;    /* Azul Claro */
 
-    --red-dark: #8b0000;      /* Rojo Oscuro: Textos de alerta o acentos fuertes */
-    --red-medium: #d90429;    /* Rojo Medio: Bordes de contraste o badges */
-    --red-light: #ffe5e5;     /* Rojo Claro: Fondos secundarios suaves */
+    --red-dark: #8b0000;      /* Rojo Oscuro */
+    --red-medium: #d90429;    /* Rojo Medio */
+    --red-light: #ffe5e5;     /* Rojo Claro */
 
     --bg-color: #f8f9fa;
     --card-bg: #ffffff;
@@ -25,17 +25,14 @@
     --header-btn-border: rgba(255, 255, 255, 0.3);
     
     --primary-color: var(--blue-medium);
-    --primary-hover: var(--blue-dark);
-    --accent-red: var(--red-medium);
     --dropdown-bg: #f1f3f5;
-    
     --alert-bg: var(--blue-light);
     --alert-border: var(--red-medium);
     --alert-text: var(--blue-dark);
 }
 
+/* --- PALETA EN MODO OSCURO --- */
 body.dark-mode {
-    /* --- PALETA EN MODO OSCURO --- */
     --blue-dark: #0a192f;
     --blue-medium: #3d8bfd;
     --blue-light: #1a2634;
@@ -51,15 +48,13 @@ body.dark-mode {
     --border-color: #2d2d2d;
     --shadow-color: rgba(0, 0, 0, 0.4);
 
-    --header-bg: var(--blue-dark);
+    --header-bg: #091322;
     --header-text: #ffffff;
-    --header-subtitle: #cbd5e1;
+    --header-subtitle: #a0aec0;
+    --header-btn-bg: rgba(255, 255, 255, 0.1);
     
     --primary-color: var(--blue-medium);
-    --primary-hover: #1d72f3;
-    --accent-red: var(--red-medium);
     --dropdown-bg: #2b2b2b;
-
     --alert-bg: var(--blue-light);
     --alert-border: var(--red-medium);
     --alert-text: #74c0fc;
@@ -92,7 +87,7 @@ body {
 }
 
 /* =========================================================================
-   2. ENCABEZADO CORREGIDO (LOGO IZQ + TITULO DERECHA + BOTÓN DISCRETO)
+   2. ENCABEZADO Y LOGO CORREGIDOS
    ========================================================================= */
 .main-header {
     background-color: var(--header-bg);
@@ -100,7 +95,7 @@ body {
     padding: 25px 0;
     border-bottom: 4px solid var(--red-medium);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    overflow: hidden; /* Evita que las imágenes se salgan del header */
+    transition: background-color 0.3s ease;
 }
 
 .header-content {
@@ -113,11 +108,10 @@ body {
     position: relative;
 }
 
-/* Contenedor principal: Logo + Título alineados horizontalmente */
 .brand-container {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 25px;
     flex: 1;
 }
 
@@ -128,21 +122,20 @@ body {
     flex-shrink: 0;
 }
 
-/* Logo alineado estrictamente a la izquierda y con altura controlada */
+/* Ajuste proporcional del logo (ancho y alto bien definidos) */
 .top-logo-img {
-    height: 200px;
-    width: auto;
+    width: 170px;
+    height: 220px;
     max-width: 100%;
     border-radius: 12px;
-    object-fit: contain;
+    object-fit: cover;
     background: #ffffff;
-    padding: 8px;
+    padding: 6px;
     border: 3px solid var(--red-medium);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
     display: block;
 }
 
-/* Título al lado del logo */
 .brand-title {
     display: flex;
     flex-direction: column;
@@ -154,7 +147,7 @@ body {
     font-weight: 800;
     line-height: 1.1;
     color: var(--header-text);
-    margin: 0 0 10px 0;
+    margin: 0 0 8px 0;
 }
 
 .brand-title .subtitle {
@@ -162,10 +155,10 @@ body {
     color: var(--header-subtitle);
 }
 
-/* Botón pequeño y discreto en la esquina superior derecha dentro del header */
+/* Botón pequeño en la esquina superior derecha */
 .header-actions {
     position: absolute;
-    top: 0;
+    top: -10px;
     right: 20px;
 }
 
@@ -173,20 +166,19 @@ body {
     background-color: var(--header-btn-bg);
     color: var(--header-text);
     border: 1px solid var(--header-btn-border);
-    padding: 4px 10px;
-    border-radius: 12px;
+    padding: 6px 12px;
+    border-radius: 15px;
     cursor: pointer;
-    font-weight: 500;
-    font-size: 0.75rem;
+    font-weight: 600;
+    font-size: 0.8rem;
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 6px;
     transition: all 0.2s ease;
-    opacity: 0.85;
+    user-select: none;
 }
 
 .theme-toggle-btn:hover {
-    opacity: 1;
     background-color: rgba(255, 255, 255, 0.25);
     border-color: var(--red-medium);
 }
@@ -362,7 +354,6 @@ body.dark-mode .search-section h2 {
     border-color: var(--blue-medium);
 }
 
-/* Carrusel y Tarjetas Responsivas */
 .carousel-track {
     display: flex;
     gap: 20px;
@@ -495,7 +486,7 @@ body.dark-mode .search-section h2 {
 }
 
 /* =========================================================================
-   5. PIE DE PÁGINA Y REGLAS RESPONSIVAS
+   5. PIE DE PÁGINA Y ADAPTACIÓN RESPONSIVA
    ========================================================================= */
 .main-footer {
     background-color: var(--blue-dark);
@@ -516,12 +507,7 @@ body.dark-mode .search-section h2 {
     display: none !important;
 }
 
-/* Adaptación para pantallas móviles */
 @media (max-width: 768px) {
-    .header-content {
-        padding-top: 20px;
-    }
-
     .brand-container {
         flex-direction: column;
         text-align: center;
@@ -529,7 +515,8 @@ body.dark-mode .search-section h2 {
     }
 
     .top-logo-img {
-        height: 140px;
+        width: 140px;
+        height: 180px;
     }
 
     .brand-title h1 {
@@ -541,7 +528,7 @@ body.dark-mode .search-section h2 {
     }
 
     .header-actions {
-        top: 5px;
+        top: -15px;
         right: 10px;
     }
 
