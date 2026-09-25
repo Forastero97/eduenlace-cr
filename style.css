@@ -1,5 +1,5 @@
 /* =========================================================================
-   1. VARIABLES CSS
+   1. VARIABLES DE TEMA (MODO CLARO Y MODO OSCURO)
    ========================================================================= */
 :root {
     --bg-color: #f8f9fa;
@@ -63,12 +63,12 @@ body {
 }
 
 /* =========================================================================
-   2. ENCABEZADO Y LOGOS
+   2. ENCABEZADO Y LOGO DESTACADO (TAMAÑO ENORME)
    ========================================================================= */
 .main-header {
     background-color: var(--header-bg);
     color: var(--header-text);
-    padding: 20px 0;
+    padding: 25px 0;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
@@ -86,64 +86,66 @@ body {
 .brand-container {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 25px;
 }
 
-.logo-icon {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 10px;
-    border-radius: 12px;
+.header-attached-image {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #60a5fa;
+}
+
+/* Tamaño de imagen del logo ampliado significativamente */
+.top-logo-img {
+    height: 140px;            /* Logo de gran presencia */
+    width: auto;
+    max-width: 100%;
+    border-radius: 12px;
+    object-fit: contain;
+    background: #ffffff;
+    padding: 6px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
 .brand-title h1 {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
     font-weight: 700;
     color: var(--header-text);
-    margin-bottom: 2px;
+    margin-bottom: 5px;
 }
 
 .brand-title .subtitle {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: var(--header-subtitle);
 }
 
 .header-actions {
     display: flex;
     align-items: center;
-    gap: 15px;
-}
-
-/* Imagen adjunta en la parte superior */
-.top-logo-img {
-    height: 48px;
-    width: auto;
-    border-radius: 8px;
-    object-fit: contain;
-    background: #fff;
-    padding: 2px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .theme-toggle-btn {
     background-color: var(--header-btn-bg);
     color: var(--header-btn-text);
     border: 1px solid var(--header-btn-border);
-    padding: 8px 16px;
+    padding: 10px 18px;
     border-radius: 20px;
     cursor: pointer;
     font-weight: 600;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     display: flex;
     align-items: center;
     gap: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.theme-toggle-btn:hover {
+    background-color: rgba(255, 255, 255, 0.25);
 }
 
 /* =========================================================================
-   3. SECCIONES Y FORMULARIO
+   3. SECCIÓN DE ESTATUS MIGRATORIO
    ========================================================================= */
 .estatus-section {
     margin-bottom: 30px;
@@ -154,8 +156,25 @@ body {
     box-shadow: 0 2px 8px var(--shadow-color);
 }
 
+.estatus-section h2 {
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+}
+
+.section-description {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+}
+
 .form-group {
     margin: 15px 0;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
 }
 
 select {
@@ -176,6 +195,12 @@ select {
     border-radius: 6px;
     cursor: pointer;
     font-weight: 600;
+    font-size: 0.95rem;
+    transition: background-color 0.2s ease;
+}
+
+.btn-submit:hover {
+    background-color: var(--primary-hover);
 }
 
 .result-box {
@@ -183,6 +208,12 @@ select {
     padding: 20px;
     background-color: var(--dropdown-bg);
     border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.result-box h3 {
+    margin-bottom: 8px;
+    font-size: 1.1rem;
 }
 
 .result-box ul {
@@ -190,12 +221,29 @@ select {
     padding-left: 20px;
 }
 
+.result-box li {
+    margin-bottom: 8px;
+}
+
+/* =========================================================================
+   4. BLOQUE DE BUSCADOR Y CARRUSEL
+   ========================================================================= */
 .universidades-wrapper {
     background-color: var(--card-bg);
     padding: 20px;
     border-radius: 10px;
     border: 1px solid var(--border-color);
     box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+.search-section h2 {
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+}
+
+.search-help {
+    font-size: 0.9rem;
+    color: var(--text-muted);
 }
 
 #input-busqueda {
@@ -210,9 +258,6 @@ select {
     margin-bottom: 25px;
 }
 
-/* =========================================================================
-   4. CARRUSEL Y TARJETAS AMPLIADAS
-   ========================================================================= */
 .carousel-controls {
     display: flex;
     justify-content: space-between;
@@ -232,6 +277,7 @@ select {
     padding: 8px 14px;
     border-radius: 6px;
     cursor: pointer;
+    font-weight: bold;
 }
 
 .carousel-track {
@@ -242,7 +288,6 @@ select {
     padding-bottom: 15px;
 }
 
-/* Tarjetas con mayor ancho asignado */
 .uni-card {
     min-width: 420px;
     max-width: 460px;
@@ -261,7 +306,6 @@ select {
     max-width: 100%;
 }
 
-/* Imágenes mantenidas tal cual están */
 .uni-banner {
     width: 100%;
     height: 240px;
@@ -276,12 +320,18 @@ select {
     gap: 10px;
 }
 
+.uni-name {
+    font-size: 1.15rem;
+    line-height: 1.3;
+}
+
 .badge {
     background-color: var(--dropdown-bg);
     color: var(--text-color);
     font-size: 0.75rem;
     padding: 4px 8px;
     border-radius: 4px;
+    white-space: nowrap;
 }
 
 .uni-preview {
@@ -305,6 +355,7 @@ select {
     cursor: pointer;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .uni-collapsible {
@@ -329,6 +380,10 @@ select {
     font-size: 0.85rem;
 }
 
+.carreras-ul li {
+    margin-bottom: 4px;
+}
+
 .alert-box {
     background-color: var(--alert-bg);
     border: 1px solid var(--alert-border);
@@ -345,6 +400,9 @@ select {
     color: var(--text-muted);
 }
 
+/* =========================================================================
+   5. PIE DE PÁGINA
+   ========================================================================= */
 .main-footer {
     background-color: var(--header-bg);
     color: var(--header-text);
@@ -353,6 +411,26 @@ select {
     text-align: center;
 }
 
+.footer-subtext {
+    font-size: 0.8rem;
+    color: var(--header-subtitle);
+    margin-top: 5px;
+}
+
 .hidden {
     display: none !important;
+}
+
+/* Adaptación responsive para pantallas móviles */
+@media (max-width: 768px) {
+    .brand-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .top-logo-img {
+        height: 100px;
+    }
+    .uni-card {
+        min-width: 280px;
+    }
 }
