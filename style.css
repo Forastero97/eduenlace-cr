@@ -99,14 +99,15 @@ body {
 }
 
 /* =========================================================================
-   2. ENCABEZADO Y LOGO (MISMO TAMAÑO QUE LAS IMÁGENES DE UNIVERSIDADES)
+   2. ENCABEZADO Y LOGO (ORDENADO LADO A LADO + BOTÓN PEQUEÑO)
    ========================================================================= */
 .main-header {
     background-color: var(--header-bg);
     color: var(--header-text);
-    padding: 25px 0;
-    border-bottom: 4px solid var(--red-medium); /* Detalle de acento en rojo */
+    padding: 20px 0;
+    border-bottom: 4px solid var(--red-medium);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    position: relative;
 }
 
 .header-content {
@@ -114,26 +115,26 @@ body {
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
+    position: relative;
 }
 
 .brand-container {
     display: flex;
     align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
+    gap: 25px;
+    width: 100%;
 }
 
 .header-attached-image {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
 }
 
-/* Logo con la misma altura de las imágenes de las universidades (200px) */
+/* Logo de 200px de alto (Mismo tamaño que las fotos de universidades) */
 .top-logo-img {
     height: 200px;
     width: auto;
@@ -142,43 +143,55 @@ body {
     object-fit: contain;
     background: #ffffff;
     padding: 8px;
-    border: 3px solid var(--red-medium); /* Borde acentuado en rojo */
+    border: 3px solid var(--red-medium);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
+/* Título con la misma presencia visual que el logo */
+.brand-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .brand-title h1 {
-    font-size: 2.2rem;
-    font-weight: 700;
+    font-size: 3.2rem;
+    font-weight: 800;
+    line-height: 1.1;
     color: var(--header-text);
-    margin-bottom: 5px;
+    margin: 0 0 8px 0;
 }
 
 .brand-title .subtitle {
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: var(--header-subtitle);
 }
 
+/* Botón pequeño y discreto en la parte superior derecha */
 .header-actions {
-    display: flex;
-    align-items: center;
+    position: absolute;
+    top: 0px;
+    right: 20px;
 }
 
 .theme-toggle-btn {
     background-color: var(--header-btn-bg);
     color: var(--header-text);
     border: 1px solid var(--header-btn-border);
-    padding: 10px 18px;
-    border-radius: 20px;
+    padding: 5px 10px;
+    border-radius: 15px;
     cursor: pointer;
-    font-weight: 600;
-    font-size: 0.9rem;
+    font-weight: 500;
+    font-size: 0.75rem;
     display: flex;
     align-items: center;
-    gap: 6px;
-    transition: background-color 0.2s ease;
+    gap: 4px;
+    transition: all 0.2s ease;
+    opacity: 0.85;
 }
 
 .theme-toggle-btn:hover {
+    opacity: 1;
     background-color: rgba(255, 255, 255, 0.25);
     border-color: var(--red-medium);
 }
@@ -509,27 +522,33 @@ body.dark-mode .search-section h2 {
     display: none !important;
 }
 
-/* Adaptación para pantallas de celular y pantallas pequeñas */
+/* Adaptación para pantallas de celular */
 @media (max-width: 768px) {
     .header-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+        padding-top: 25px;
     }
 
     .brand-container {
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        text-align: center;
+        gap: 15px;
     }
 
-    /* En móviles se reduce un poco proporcionalmente para que quepa bien en pantalla */
     .top-logo-img {
         height: 140px;
     }
 
     .brand-title h1 {
-        font-size: 1.7rem;
+        font-size: 2rem;
+    }
+
+    .brand-title .subtitle {
+        font-size: 1rem;
+    }
+
+    .header-actions {
+        top: -10px;
+        right: 15px;
     }
 
     .btn-submit {
