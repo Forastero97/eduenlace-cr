@@ -3,63 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Migrando Oportunidades - Costa Rica</title>
+    <title>Migrando oportunidades - Guía de Educación Superior y Becas</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- ENCABEZADO -->
-    <header class="header">
-        <div class="header-container">
-            <div class="header-brand">
-                <div class="logo-box">
-                    <!-- Cambia "afiche.jpg" por el nombre exacto de tu archivo de imagen -->
-                    <img src="afiche.jpg" alt="Logo Migrando Oportunidades" onerror="this.onerror=null; this.src='https://via.placeholder.com/80x110?text=Afiche';">
+    <!-- Encabezado Principal -->
+    <header class="main-header">
+        <div class="header-content">
+            <div class="brand-container">
+                <div class="header-attached-image">
+                    <!-- Nombre de archivo configurado a tu imagen logo.jpeg.jpeg -->
+                    <img src="logo.jpeg.jpeg" class="top-logo-img" alt="Logo Migrando Oportunidades">
                 </div>
-                <div class="brand-text">
+                <div class="brand-title">
                     <h1>Migrando oportunidades</h1>
-                    <p>Opciones de ingreso, carreras y beneficios socioeconómicos en Costa Rica</p>
+                    <p class="subtitle">Opciones de ingreso, carreras y beneficios socioeconómicos en Costa Rica</p>
                 </div>
             </div>
             
-            <!-- Botón funcional para alternar tema -->
-            <button id="themeToggle" class="toggle-btn" type="button">☀️ Modo Claro</button>
+            <!-- Botón discreto posicionado arriba a la derecha -->
+            <div class="header-actions">
+                <button id="btn-theme-toggle" class="theme-toggle-btn" type="button">
+                    <span id="theme-icon">☀️</span>
+                    <span id="theme-text">Modo Claro</span>
+                </button>
+            </div>
         </div>
     </header>
 
-    <!-- CONTENIDO PRINCIPAL -->
-    <main class="main-container">
-        
-        <!-- SECCIÓN 1: ESTATUS MIGRATORIO -->
-        <section class="card">
-            <h2>Consulta por Estatus / Categoría Migratoria</h2>
-            <p class="desc">Selecciona tu condición migratoria actual para conocer los derechos de admisión y beneficios de beca socioeconómica aplicables:</p>
-            
-            <form id="formEstatus" onsubmit="event.preventDefault();">
+    <main class="container">
+        <!-- 1. Consulta por Categoría Migratoria -->
+        <section class="estatus-section">
+            <h2>Consulta por estatus / categoría Migratoria</h2>
+            <p class="section-description">Selecciona tu condición migratoria actual para conocer los derechos de admisión y beneficios de beca socioeconómica aplicables:</p>
+            <form id="form-estatus">
                 <div class="form-group">
-                    <label for="selectCondicion">Selecciona tu condición en Costa Rica:</label>
-                    <select id="selectCondicion">
+                    <label for="select-categoria">Selecciona tu condición en Costa Rica:</label>
+                    <select id="select-categoria" required>
                         <option value="" disabled selected>-- Selecciona una categoría --</option>
-                        <option value="refugio">Solicitante de Refugio / Refugiado</option>
-                        <option value="residencia">Residencia Temporal / Permanente</option>
-                        <option value="estudiante">Categoría Especial de Estudiante</option>
+                        <option value="residencia">Residencia Permanente / Regularizado (DIMEX)</option>
+                        <option value="refugiado">Refugiado Aprobado</option>
+                        <option value="solicitante">Solicitante de Refugio (Documento en trámite)</option>
+                        <option value="categoria_especial">Régimen Especial / Categoria Especial / Convenios</option>
+                        <option value="coopelesca">Asociado Coopelesca (Zona Norte / San Carlos)</option>
+                        <option value="internacional">Estudiante Internacional / Visa Estudiantil / Sin Regularizar</option>
                     </select>
                 </div>
-                <button type="submit" class="action-btn">Consultar Beneficios</button>
+                <button type="submit" class="btn-submit">Consultar Beneficios</button>
             </form>
-        </section>
 
-        <!-- SECCIÓN 2: BÚSQUEDA DE INSTITUCIONES -->
-        <section class="card">
-            <h2>Búsqueda de Instituciones y Carreras</h2>
-            <p class="desc">Puedes buscar por nombre de universidad, carrera específica, tipo de beca o palabra clave:</p>
-            
-            <div class="form-group">
-                <input type="text" placeholder="Ej: UCR, Medicina, Beca socioeconómica...">
+            <div id="result-box" class="result-box hidden">
+                <h3 id="result-title"></h3>
+                <p id="result-description"></p>
+                <ul id="result-list"></ul>
             </div>
         </section>
 
+        <!-- Bloque Integrado: Filtro de Búsqueda y Carrusel de Universidades -->
+        <div class="universidades-wrapper">
+            <!-- Buscador general de universidades -->
+            <section class="search-section">
+                <h2>Búsqueda de Instituciones y Carreras</h2>
+                <p class="search-help">Puedes buscar por nombre de universidad, carrera específica, tipo de beca o palabra clave:</p>
+                <input type="text" id="input-busqueda" placeholder="🔍 Buscar por universidad, carrera o requisito..." aria-label="Buscador general">
+            </section>
+
+            <!-- Carrusel / Galería de Instituciones -->
+            <section class="carousel-section">
+                <div class="carousel-controls">
+                    <h3>Instituciones Destacadas</h3>
+                    <div class="nav-btns">
+                        <button id="btn-prev" class="btn-nav" aria-label="Anterior">◄</button>
+                        <button id="btn-next" class="btn-nav" aria-label="Siguiente">►</button>
+                    </div>
+                </div>
+                <div id="carousel-track" class="carousel-track">
+                    <!-- Se renderiza dinámicamente desde script.js -->
+                </div>
+            </section>
+        </div>
     </main>
+
+    <!-- Pie de Página -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>Migrando oportunidades &copy; 2026</p>
+            <p class="footer-subtext">Plataforma informativa desarrollada en Costa Rica para la orientación académica, migratoria e inclusión socioeconómica estudiantil.</p>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
