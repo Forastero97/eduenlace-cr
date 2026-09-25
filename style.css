@@ -1,41 +1,75 @@
 /* =========================================================================
-   1. VARIABLES DE TEMA (MODO CLARO Y MODO OSCURO)
+   1. VARIABLES DE TEMA (3 TONOS DE AZUL Y 3 TONOS DE ROJO)
    ========================================================================= */
 :root {
+    /* --- PALETA EN MODO CLARO --- */
+    
+    /* 3 Tonos de Azul */
+    --blue-dark: #0f2b48;     /* Azul Oscuro: Encabezados y Footer */
+    --blue-medium: #1d72f3;   /* Azul Medio: Botones primarios e interactivos */
+    --blue-light: #e7f5ff;    /* Azul Claro: Fondos de alerta y resaltados */
+
+    /* 3 Tonos de Rojo */
+    --red-dark: #8b0000;      /* Rojo Oscuro: Textos de alerta o acentos fuertes */
+    --red-medium: #d90429;    /* Rojo Medio: Bordes de contraste o badges */
+    --red-light: #ffe5e5;     /* Rojo Claro: Fondos secundarios suaves */
+
+    /* Colores Estructurales Base */
     --bg-color: #f8f9fa;
     --card-bg: #ffffff;
     --text-color: #212529;
     --text-muted: #6c757d;
     --border-color: #e9ecef;
-    --primary-color: #0d6efd;
-    --primary-hover: #0b5ed7;
-    --dropdown-bg: #f1f3f5;
-    --alert-bg: #e7f5ff;
-    --alert-border: #a5d8ff;
-    --alert-text: #1864ab;
     --shadow-color: rgba(0, 0, 0, 0.08);
 
-    --header-bg: #0f2b48;
+    /* Asignación de variables al tema */
+    --header-bg: var(--blue-dark);
     --header-text: #ffffff;
     --header-subtitle: #cbd5e1;
     --header-btn-bg: rgba(255, 255, 255, 0.15);
     --header-btn-border: rgba(255, 255, 255, 0.3);
-    --header-btn-text: #ffffff;
+    
+    --primary-color: var(--blue-medium);
+    --primary-hover: var(--blue-dark);
+    --accent-red: var(--red-medium);
+    --dropdown-bg: #f1f3f5;
+    
+    --alert-bg: var(--blue-light);
+    --alert-border: var(--red-medium);
+    --alert-text: var(--blue-dark);
 }
 
 body.dark-mode {
+    /* --- PALETA EN MODO OSCURO --- */
+    
+    /* Adaptación de tonos para legibilidad nocturna */
+    --blue-dark: #0a192f;
+    --blue-medium: #3d8bfd;
+    --blue-light: #1a2634;
+
+    --red-dark: #ff4d4d;
+    --red-medium: #ef233c;
+    --red-light: #3a1518;
+
     --bg-color: #121212;
     --card-bg: #1e1e1e;
     --text-color: #e0e0e0;
     --text-muted: #a0a0a0;
     --border-color: #2d2d2d;
-    --primary-color: #3d8bfd;
-    --primary-hover: #1d72f3;
-    --dropdown-bg: #2b2b2b;
-    --alert-bg: #1a2634;
-    --alert-border: #2b4c7e;
-    --alert-text: #74c0fc;
     --shadow-color: rgba(0, 0, 0, 0.4);
+
+    --header-bg: var(--blue-dark);
+    --header-text: #ffffff;
+    --header-subtitle: #cbd5e1;
+    
+    --primary-color: var(--blue-medium);
+    --primary-hover: #1d72f3;
+    --accent-red: var(--red-medium);
+    --dropdown-bg: #2b2b2b;
+
+    --alert-bg: var(--blue-light);
+    --alert-border: var(--red-medium);
+    --alert-text: #74c0fc;
 }
 
 * {
@@ -53,22 +87,25 @@ body {
     flex-direction: column;
     min-height: 100vh;
     transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: hidden;
 }
 
 .container {
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 20px 15px;
     flex: 1;
 }
 
 /* =========================================================================
-   2. ENCABEZADO Y LOGO DESTACADO (TAMAÑO ENORME)
+   2. ENCABEZADO Y LOGO (MISMO TAMAÑO QUE LAS IMÁGENES DE UNIVERSIDADES)
    ========================================================================= */
 .main-header {
     background-color: var(--header-bg);
     color: var(--header-text);
     padding: 25px 0;
+    border-bottom: 4px solid var(--red-medium); /* Detalle de acento en rojo */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
@@ -86,7 +123,8 @@ body {
 .brand-container {
     display: flex;
     align-items: center;
-    gap: 25px;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .header-attached-image {
@@ -95,16 +133,16 @@ body {
     justify-content: center;
 }
 
-/* Tamaño de imagen del logo ampliado significativamente */
+/* Logo con la misma altura de las imágenes de las universidades (200px) */
 .top-logo-img {
-    height: 420px;            /* Logo de gran presencia */
+    height: 200px;
     width: auto;
     max-width: 100%;
     border-radius: 12px;
     object-fit: contain;
     background: #ffffff;
-    padding: 6px;
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 8px;
+    border: 3px solid var(--red-medium); /* Borde acentuado en rojo */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
@@ -127,7 +165,7 @@ body {
 
 .theme-toggle-btn {
     background-color: var(--header-btn-bg);
-    color: var(--header-btn-text);
+    color: var(--header-text);
     border: 1px solid var(--header-btn-border);
     padding: 10px 18px;
     border-radius: 20px;
@@ -142,6 +180,7 @@ body {
 
 .theme-toggle-btn:hover {
     background-color: rgba(255, 255, 255, 0.25);
+    border-color: var(--red-medium);
 }
 
 /* =========================================================================
@@ -153,12 +192,18 @@ body {
     padding: 25px;
     border-radius: 10px;
     border: 1px solid var(--border-color);
+    border-top: 4px solid var(--blue-medium);
     box-shadow: 0 2px 8px var(--shadow-color);
 }
 
 .estatus-section h2 {
     font-size: 1.4rem;
+    color: var(--blue-dark);
     margin-bottom: 5px;
+}
+
+body.dark-mode .estatus-section h2 {
+    color: var(--text-color);
 }
 
 .section-description {
@@ -187,8 +232,15 @@ select {
     font-size: 0.95rem;
 }
 
+select:focus {
+    outline: none;
+    border-color: var(--blue-medium);
+}
+
 .btn-submit {
-    background-color: var(--primary-color);
+    width: 100%;
+    max-width: 250px;
+    background-color: var(--blue-medium);
     color: #fff;
     border: none;
     padding: 12px 24px;
@@ -200,7 +252,7 @@ select {
 }
 
 .btn-submit:hover {
-    background-color: var(--primary-hover);
+    background-color: var(--blue-dark);
 }
 
 .result-box {
@@ -208,12 +260,14 @@ select {
     padding: 20px;
     background-color: var(--dropdown-bg);
     border-radius: 8px;
-    border-left: 4px solid var(--primary-color);
+    border-left: 4px solid var(--red-medium);
+    word-break: break-word;
 }
 
 .result-box h3 {
     margin-bottom: 8px;
     font-size: 1.1rem;
+    color: var(--red-dark);
 }
 
 .result-box ul {
@@ -226,19 +280,26 @@ select {
 }
 
 /* =========================================================================
-   4. BLOQUE DE BUSCADOR Y CARRUSEL
+   4. BLOQUE DE BUSCADOR Y CARRUSEL RESPONSIVO
    ========================================================================= */
 .universidades-wrapper {
     background-color: var(--card-bg);
     padding: 20px;
     border-radius: 10px;
     border: 1px solid var(--border-color);
+    border-top: 4px solid var(--red-medium);
     box-shadow: 0 2px 8px var(--shadow-color);
+    overflow: hidden;
 }
 
 .search-section h2 {
     font-size: 1.4rem;
+    color: var(--blue-dark);
     margin-bottom: 5px;
+}
+
+body.dark-mode .search-section h2 {
+    color: var(--text-color);
 }
 
 .search-help {
@@ -258,11 +319,18 @@ select {
     margin-bottom: 25px;
 }
 
+#input-busqueda:focus {
+    outline: none;
+    border-color: var(--blue-medium);
+}
+
 .carousel-controls {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .nav-btns {
@@ -280,17 +348,26 @@ select {
     font-weight: bold;
 }
 
+.btn-nav:hover {
+    background-color: var(--blue-medium);
+    color: #ffffff;
+    border-color: var(--blue-medium);
+}
+
+/* Carrusel y Tarjetas Responsivas */
 .carousel-track {
     display: flex;
     gap: 20px;
     overflow-x: auto;
     scroll-behavior: smooth;
     padding-bottom: 15px;
+    -webkit-overflow-scrolling: touch;
 }
 
 .uni-card {
-    min-width: 420px;
-    max-width: 460px;
+    width: calc(100vw - 70px);
+    max-width: 420px;
+    min-width: 280px;
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 10px;
@@ -302,13 +379,14 @@ select {
 }
 
 .uni-card.single-card {
-    min-width: 100%;
+    width: 100%;
     max-width: 100%;
 }
 
+/* Imagen de las universidades: 200px de altura */
 .uni-banner {
     width: 100%;
-    height: 240px;
+    height: 200px;
     object-fit: cover;
 }
 
@@ -321,13 +399,14 @@ select {
 }
 
 .uni-name {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     line-height: 1.3;
 }
 
 .badge {
-    background-color: var(--dropdown-bg);
-    color: var(--text-color);
+    background-color: var(--red-light);
+    color: var(--red-dark);
+    border: 1px solid var(--red-medium);
     font-size: 0.75rem;
     padding: 4px 8px;
     border-radius: 4px;
@@ -356,6 +435,12 @@ select {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-size: 0.85rem;
+}
+
+.btn-toggle:hover, .btn-carreras-toggle:hover {
+    border-color: var(--blue-medium);
+    color: var(--blue-medium);
 }
 
 .uni-collapsible {
@@ -385,30 +470,33 @@ select {
 }
 
 .alert-box {
-    background-color: var(--alert-bg);
-    border: 1px solid var(--alert-border);
+    background-color: var(--blue-light);
+    border: 1px solid var(--blue-medium);
     color: var(--alert-text);
     padding: 12px;
     border-radius: 6px;
     font-size: 0.85rem;
     margin-top: 15px;
     margin-bottom: 15px;
+    word-break: break-word;
 }
 
 .contacto-text {
     font-size: 0.8rem;
     color: var(--text-muted);
+    word-break: break-all;
 }
 
 /* =========================================================================
-   5. PIE DE PÁGINA
+   5. PIE DE PÁGINA Y REGLAS RESPONSIVAS (MÓVILES Y TABLETS)
    ========================================================================= */
 .main-footer {
-    background-color: var(--header-bg);
+    background-color: var(--blue-dark);
     color: var(--header-text);
-    padding: 25px 0;
+    padding: 25px 15px;
     margin-top: 40px;
     text-align: center;
+    border-top: 4px solid var(--red-medium);
 }
 
 .footer-subtext {
@@ -421,16 +509,35 @@ select {
     display: none !important;
 }
 
-/* Adaptación responsive para pantallas móviles */
+/* Adaptación para pantallas de celular y pantallas pequeñas */
 @media (max-width: 768px) {
-    .brand-container {
+    .header-content {
         flex-direction: column;
+        align-items: center;
         text-align: center;
     }
-    .top-logo-img {
-        height: 100px;
+
+    .brand-container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
+
+    /* En móviles se reduce un poco proporcionalmente para que quepa bien en pantalla */
+    .top-logo-img {
+        height: 140px;
+    }
+
+    .brand-title h1 {
+        font-size: 1.7rem;
+    }
+
+    .btn-submit {
+        max-width: 100%;
+    }
+
     .uni-card {
-        min-width: 280px;
+        width: 85vw;
+        max-width: 100%;
     }
 }
