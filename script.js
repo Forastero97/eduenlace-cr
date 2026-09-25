@@ -13,6 +13,7 @@ const UNIVERSIDADES = [
             "Ingeniería en Sistemas de Información",
             "Relaciones Internacionales",
             "Administración de Empresas",
+            "Arquitectura",
             "Medicina Veterinaria",
             "Biología Marina",
             "Química Industrial",
