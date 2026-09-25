@@ -12,11 +12,9 @@
     <header class="main-header">
         <div class="header-content">
             <div class="brand-container">
-                <div class="logo-icon">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-                        <path d="M6 12v5c3 3 9 3 12 0v-5"/>
-                    </svg>
+                <!-- Imagen / Logo Enorme Destacado -->
+                <div class="header-attached-image">
+                    <img src="logo.jpeg" alt="Logo Migrando Oportunidades" class="top-logo-img">
                 </div>
                 <div class="brand-title">
                     <h1>Migrando oportunidades</h1>
@@ -25,10 +23,6 @@
             </div>
 
             <div class="header-actions">
-                <!-- Imagen Adjunta Superior -->
-                <div class="header-attached-image">
-                    <img src="Logo migrando oportunidades.jpeg" alt="Logo Migrando Oportunidades" class="top-logo-img">
-                </div>
                 <button id="btn-theme-toggle" class="theme-toggle-btn" type="button" aria-label="Cambiar tema">
                     <span id="theme-icon">🌙</span> <span id="theme-text">Modo Oscuro</span>
                 </button>
@@ -40,6 +34,7 @@
         <!-- 1. Consulta por Categoría Migratoria -->
         <section class="estatus-section">
             <h2>Consulta por Estatus / Categoría Migratoria</h2>
+            <p class="section-description">Selecciona tu condición migratoria actual para conocer los derechos de admisión y beneficios de beca socioeconómica aplicables:</p>
             <form id="form-estatus">
                 <div class="form-group">
                     <label for="select-categoria">Selecciona tu condición en Costa Rica:</label>
@@ -48,7 +43,7 @@
                         <option value="residencia">Residencia Permanente / Regularizado (DIMEX)</option>
                         <option value="refugiado">Refugiado Aprobado</option>
                         <option value="solicitante">Solicitante de Refugio (Documento en trámite)</option>
-                        <option value="categoria_especial">Régimen Especial / Categoria Especial / Convenios</option>
+                        <option value="categoria_especial">Régimen Especial / Categoría Especial / Convenios</option>
                         <option value="coopelesca">Asociado Coopelesca (Zona Norte / San Carlos)</option>
                         <option value="internacional">Estudiante Internacional / Visa Estudiantil / Sin Regularizar</option>
                     </select>
@@ -68,6 +63,7 @@
             <!-- Buscador general de universidades -->
             <section class="search-section">
                 <h2>Búsqueda de Instituciones y Carreras</h2>
+                <p class="search-help">Puedes buscar por nombre de universidad, carrera específica, tipo de beca o palabra clave:</p>
                 <input type="text" id="input-busqueda" placeholder="🔍 Buscar por universidad, carrera o requisito..." aria-label="Buscador general">
             </section>
 
