@@ -10,25 +10,30 @@
 
     <!-- Encabezado Principal -->
     <header class="main-header">
-        <div class="header-content">
-            <div class="brand-container">
-                <div class="header-attached-image">
-                    <!-- Si tu imagen es .png o .jpg solo cambia el "logo.jpeg" por el formato correcto -->
-                    <img src="logo.jpeg" class="top-logo-img" alt="Logo Migrando Oportunidades">
-                </div>
-                <div class="brand-title">
-                    <h1>Migrando oportunidades</h1>
-                    <p class="subtitle">Opciones de ingreso, carreras y beneficios socioeconómicos en Costa Rica</p>
-                </div>
-            </div>
+        <div class="header-container">
             
-            <!-- Botón discreto posicionado arriba a la derecha -->
+            <!-- Logo con fallback automático si no encuentra el archivo local -->
+            <div class="brand-logo">
+                <img src="logo.jpeg" 
+                     alt="Logo Migrando Oportunidades" 
+                     id="header-logo"
+                     onerror="this.onerror=null; this.src='https://via.placeholder.com/100x120?text=Logo';">
+            </div>
+
+            <!-- Título y Subtítulo -->
+            <div class="brand-text">
+                <h1>Migrando oportunidades</h1>
+                <p class="subtitle">Opciones de ingreso, carreras y beneficios socioeconómicos en Costa Rica</p>
+            </div>
+
+            <!-- Botón de Modo Oscuro/Claro -->
             <div class="header-actions">
-                <button id="btn-theme-toggle" class="theme-toggle-btn" type="button">
+                <button id="btn-theme-toggle" class="theme-toggle-btn" type="button" aria-label="Cambiar tema">
                     <span id="theme-icon">☀️</span>
                     <span id="theme-text">Modo Claro</span>
                 </button>
             </div>
+
         </div>
     </header>
 
