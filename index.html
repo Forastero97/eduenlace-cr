@@ -4,18 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Migrando Oportunidades - Costa Rica</title>
-    <!-- Asegúrate de que el archivo CSS se llame style.css o cambia la ruta aquí -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="light-mode">
 
     <!-- ENCABEZADO Y BRANDING -->
     <header class="main-header">
         <div class="header-content">
             <div class="brand-container">
                 <div class="header-attached-image">
-                    <!-- REEMPLAZA 'tu-imagen.png' CON LA RUTA Y NOMBRE REAL DE TU IMAGEN -->
-                    <img src="tu-imagen.png" class="top-logo-img" alt="Logo Migrando Oportunidades">
+                    <!-- REEMPLAZA 'logo.png' CON EL NOMBRE O RUTA EXACTA DE TU ARCHIVO DE IMAGEN -->
+                    <img src="logo.png" class="top-logo-img" alt="Migrando Oportunidades Logo" onerror="this.src='https://via.placeholder.com/160x220?text=Logo+Afiche'">
                 </div>
                 <div class="brand-title">
                     <h1>Migrando oportunidades</h1>
@@ -23,7 +22,7 @@
                 </div>
             </div>
             <div class="header-actions">
-                <button id="theme-toggle" class="theme-toggle-btn" type="button">☀️ Modo Claro</button>
+                <button id="theme-toggle" class="theme-toggle-btn" type="button">🌙 Modo Oscuro</button>
             </div>
         </div>
     </header>
@@ -50,9 +49,7 @@
 
             <div id="resultado-estatus" class="result-box hidden">
                 <h3 id="resultado-titulo">Requisitos y Opciones</h3>
-                <div id="resultado-contenido">
-                    <!-- Aquí se inyecta la información con JS -->
-                </div>
+                <div id="resultado-contenido"></div>
             </div>
         </section>
 
@@ -75,7 +72,7 @@
             <!-- CARRUSEL DE UNIVERSIDADES -->
             <div class="carousel-track" id="carousel-track">
                 
-                <!-- Tarjeta de Ejemplo 1 -->
+                <!-- Tarjeta 1 -->
                 <article class="uni-card">
                     <img src="https://via.placeholder.com/400x200" alt="Universidad de Costa Rica" class="uni-banner">
                     <div class="uni-header">
@@ -104,17 +101,16 @@
                                 <li>Derecho</li>
                                 <li>Medicina</li>
                                 <li>Ingeniería de Sistemas</li>
-                                <li>Educación Primaria</li>
                             </ul>
                         </div>
 
-                        <p class="contacto-text" style="margin-top: 15px;">
-                            <strong>Contacto:</strong> admision@ucr.ac.cr | +506 2511-0000
+                        <p class="contacto-text">
+                            <strong>Contacto:</strong> admision@ucr.ac.cr
                         </p>
                     </div>
                 </article>
 
-                <!-- Tarjeta de Ejemplo 2 -->
+                <!-- Tarjeta 2 -->
                 <article class="uni-card">
                     <img src="https://via.placeholder.com/400x200" alt="Universidad Nacional" class="uni-banner">
                     <div class="uni-header">
@@ -131,7 +127,7 @@
 
                     <div class="uni-collapsible">
                         <div class="alert-box">
-                            <strong>Aviso:</strong> El proceso de inscripción para el examen de admisión abre en febrero.
+                            <strong>Aviso:</strong> El proceso de inscripción abre en febrero.
                         </div>
 
                         <button class="btn-carreras-toggle" type="button" onclick="toggleCarreras(this)">
@@ -142,12 +138,11 @@
                             <ul class="carreras-ul">
                                 <li>Sociología</li>
                                 <li>Administración</li>
-                                <li>Informática</li>
                             </ul>
                         </div>
 
-                        <p class="contacto-text" style="margin-top: 15px;">
-                            <strong>Contacto:</strong> contacto@una.ac.cr | +506 2277-3000
+                        <p class="contacto-text">
+                            <strong>Contacto:</strong> contacto@una.ac.cr
                         </p>
                     </div>
                 </article>
@@ -159,41 +154,47 @@
     <!-- PIE DE PÁGINA -->
     <footer class="main-footer">
         <p>&copy; 2026 Migrando Oportunidades - Costa Rica</p>
-        <p class="footer-subtext">Plataforma informativa de apoyo a la integración académica y profesional.</p>
+        <p class="footer-subtext">Plataforma informativa de apoyo a la integración académica.</p>
     </footer>
 
-    <!-- SCRIPT PARA INTERACTIVIDAD DE MODO CLARO/OSCURO Y TARJETAS -->
+    <!-- SCRIPT JS FUNCIONAL -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Lógica del botón de cambio de Modo Claro / Modo Oscuro
+            // LÓGICA DEL BOTÓN MODO CLARO / MODO OSCURO
             const themeBtn = document.getElementById('theme-toggle');
 
             if (themeBtn) {
                 themeBtn.addEventListener('click', () => {
-                    document.body.classList.toggle('dark-mode');
-                    
-                    const isDark = document.body.classList.contains('dark-mode');
-                    themeBtn.textContent = isDark ? '☀️ Modo Claro' : '🌙 Modo Oscuro';
+                    const body = document.body;
+                    if (body.classList.contains('dark-mode')) {
+                        body.classList.remove('dark-mode');
+                        body.classList.add('light-mode');
+                        themeBtn.textContent = '🌙 Modo Oscuro';
+                    } else {
+                        body.classList.remove('light-mode');
+                        body.classList.add('dark-mode');
+                        themeBtn.textContent = '☀️ Modo Claro';
+                    }
                 });
             }
 
-            // Desplazamiento simple del carrusel
+            // LÓGICA DE NAVEGACIÓN DEL CARRUSEL
             const track = document.getElementById('carousel-track');
             const btnPrev = document.getElementById('btn-prev');
             const btnNext = document.getElementById('btn-next');
 
             if (btnPrev && btnNext && track) {
                 btnNext.addEventListener('click', () => {
-                    track.scrollBy({ left: 320, behavior: 'smooth' });
+                    track.scrollBy({ left: 300, behavior: 'smooth' });
                 });
 
                 btnPrev.addEventListener('click', () => {
-                    track.scrollBy({ left: -320, behavior: 'smooth' });
+                    track.scrollBy({ left: -300, behavior: 'smooth' });
                 });
             }
         });
 
-        // Función para expandir información de las tarjetas
+        // DESPLEGABLES DE TARJETAS
         function toggleCard(button) {
             const card = button.closest('.uni-card');
             card.classList.toggle('expanded');
@@ -201,7 +202,6 @@
             button.querySelector('span').textContent = isExpanded ? '▲' : '▼';
         }
 
-        // Función para desplegar lista de carreras
         function toggleCarreras(button) {
             const container = button.nextElementSibling;
             container.classList.toggle('hidden');
