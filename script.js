@@ -1,6 +1,6 @@
 /**
  * =========================================================================
- * 1. BASE DE DATOS ACTUALIZADA
+ * 1. BASE DE DATOS DETALLADA DE INSTITUCIONES
  * =========================================================================
  */
 const UNIVERSIDADES = [
@@ -32,12 +32,27 @@ const UNIVERSIDADES = [
             "Traducción e Interpretación Francés-Español"
         ],
         beneficiosMigrantes: `
-            <p><strong>Población Elegible para Becas Socioeconómicas:</strong> Costarricenses por nacimiento o naturalización; Centroamericanos y del Caribe (excluyendo el Caribe fuera de Centroamérica) con condición migratoria vigente de residente permanente, refugiado o solicitante de refugio; Estudiantes extranjeras de México y Sudamérica con condición vigente de residente permanente, refugiado o solicitante de refugio (según disponibilidad presupuestaria).</p>
-            <p><strong>⚠️ Restricción Importante:</strong> Las personas con Régimen Especial o Categoría Especial otorgada por Migración y Extranjería, así como personas del Caribe fuera de Centroamérica, <strong>NO pueden optar por becas socioeconómicas</strong> en la UNA, a menos que cuenten con una solicitud de refugio tramitada o el estatus de refugio aprobado.</p>
-            <p><strong>Exoneración de créditos según Categoría Socioeconómica:</strong> Cat 1: 20%, Cat 2: 40%, Cat 3: 60%, Cat 4: 80%, Cat 5: 100%. Contempla ayudas complementarias y beneficios económicos adicionales.</p>
-            <p><strong>Periodo de solicitud (Admisión 2027):</strong> Del 2 de diciembre 2026 al 8 de enero 2027.</p>
-            <p><strong>Beca Luis Felipe González Flores:</strong> Aporte económico mensual durante el período lectivo para quienes cuenten con Categoría 5 aprobada.</p>
-            <p><strong>Beca Omar Dengo (Residencia Estudiantil):</strong> Aporte mensual y residencia para estudiantes de escasos recursos o zonas alejadas (Campus Omar Dengo, Benjamín Núñez, Pérez Zeledón, Sarapiquí, Nicoya y Liberia).</p>
+            <p><strong>Población Elegible para Becas Socioeconómicas:</strong></p>
+            <ul>
+                <li>Costarricenses por nacimiento o naturalización.</li>
+                <li>Personas de Centroamérica y del Caribe (excluyendo el Caribe fuera de Centroamérica) con condición migratoria vigente de residente permanente, refugiado o solicitante de refugio.</li>
+                <li>Estudiantes extranjeras de México y Sudamérica con condición vigente de residente permanente, refugiado o solicitante de refugio (sujeto a disponibilidad presupuestaria).</li>
+            </ul>
+            <p><strong>⚠️ Restricción Importante:</strong> Las personas con Régimen Especial o Categoría Especial otorgada por la Dirección General de Migración y Extranjería, así como personas de la región del Caribe ubicada fuera de Centroamérica, <strong>NO pueden optar por becas socioeconómicas</strong> en la UNA, a menos que cuenten con una solicitud de refugio tramitada o el estatus de refugio aprobado.</p>
+            <p><strong>Exoneración de créditos según Categoría Socioeconómica:</strong></p>
+            <ul>
+                <li>Categoría 1: Exoneración del 20% en los derechos de estudio.</li>
+                <li>Categoría 2: Exoneración del 40% en los derechos de estudio.</li>
+                <li>Categoría 3: Exoneración del 60% en los derechos de estudio.</li>
+                <li>Categoría 4: Exoneración del 80% en los derechos de estudio.</li>
+                <li>Categoría 5: Exoneración del 100% en los derechos de estudio.</li>
+            </ul>
+            <p><strong>Beneficios Complementarios:</strong></p>
+            <ul>
+                <li><strong>Beca Luis Felipe González Flores:</strong> Aporte económico mensual asignado durante el período lectivo para estudiantes con Categoría 5 aprobada.</li>
+                <li><strong>Beca Omar Dengo (Residencia Estudiantil):</strong> Aporte mensual y residencia para estudiantes con limitaciones socioeconómicas provenientes de zonas alejadas (Sedes Omar Dengo, Benjamín Núñez, Pérez Zeledón, Sarapiquí, Nicoya y Liberia).</li>
+            </ul>
+            <p><strong>Periodo de solicitud (Admisión 2027):</strong> Del 2 de diciembre de 2026 al 8 de enero de 2027.</p>
         `,
         contacto: "Fuente: Universidad Nacional. (2026). Sistema de Becas Estudiantiles. Vicerrectoría de Vida Estudiantil. https://www.vidaestudiantil.una.ac.cr/becas"
     },
@@ -69,19 +84,24 @@ const UNIVERSIDADES = [
             "Ingeniería Agronómica"
         ],
         beneficiosMigrantes: `
-            <p><strong>Población Elegible para Becas Socioeconómicas (Art. 5):</strong> Población estudiantil nacional; Población extranjera con residencia permanente; <strong>Personas en condición de Solicitante de Refugio o Refugiado Aprobado</strong>; y personas con estatus cubierto por tratados e instrumentos internacionales vigentes en Costa Rica.</p>
-            <p><strong>Categorías de Beca Socioeconómica, Exoneración y Beneficios:</strong>
-                <ul>
-                    <li><em>Beca 1:</em> 45% exoneración | Préstamo para libros y equipos.</li>
-                    <li><em>Beca 2:</em> 70% exoneración | Préstamo para libros y equipos.</li>
-                    <li><em>Beca 3:</em> 90% exoneración | Subsidio del 70% en almuerzo, préstamo de libros y dinero.</li>
-                    <li><em>Beca 4:</em> 100% exoneración | 50% en laboratorios/actividades; 100% transporte o alojamiento.</li>
-                    <li><em>Beca 5:</em> 100% exoneración | 100% en laboratorios/actividades; monto económico mensual para gastos de carrera, transporte, alojamiento y alimentación.</li>
-                </ul>
-            </p>
-            <p><strong>Requisitos de Permanencia:</strong> Consolidar mínimo 12 créditos por ciclo lectivo y mantener un promedio ponderado anual o modificado igual o superior a 7.0.</p>
+            <p><strong>Población Elegible para Becas Socioeconómicas (Art. 5):</strong></p>
+            <ul>
+                <li>Población estudiantil nacional.</li>
+                <li>Población extranjera con residencia permanente.</li>
+                <li><strong>Personas en condición de Solicitante de Refugio o Refugiado Aprobado.</strong></li>
+                <li>Personas con estatus cubierto por tratados e instrumentos internacionales vigentes en Costa Rica.</li>
+            </ul>
+            <p><strong>Categorías de Beca Socioeconómica y Coberturas:</strong></p>
+            <ul>
+                <li><em>Beca 1:</em> 45% de exoneración en matrícula | Préstamo de libros y materiales.</li>
+                <li><em>Beca 2:</em> 70% de exoneración en matrícula | Préstamo de libros y materiales.</li>
+                <li><em>Beca 3:</em> 90% de exoneración en matrícula | Subsidio del 70% en almuerzo, préstamo de libros y ayuda económica.</li>
+                <li><em>Beca 4:</em> 100% de exoneración en matrícula | 50% en laboratorios o cursos prácticos | 100% transporte o alojamiento según residencia.</li>
+                <li><em>Beca 5:</em> 100% de exoneración en matrícula | 100% en laboratorios o actividades complementarias | Monto económico mensual asignado para gastos de carrera, transporte, alojamiento y alimentación.</li>
+            </ul>
+            <p><strong>Requisitos de Permanencia:</strong> Matricular y consolidar un mínimo de 12 créditos por ciclo lectivo y mantener un promedio ponderado anual o modificado igual o superior a 7.0.</p>
         `,
-        contacto: "Oficina de Becas y Atención Social (OBAS) - Vicerrectoría de Vida Estudiantil, UCR."
+        contacto: "Oficina de Becas y Atención Social (OBAS) - Vicerrectoría de Vida Estudiantil, UCR. https://becas.ucr.ac.cr"
     },
     {
         id: 3,
@@ -111,16 +131,19 @@ const UNIVERSIDADES = [
             "Enseñanza de la Matemática Asistida por Computadora"
         ],
         beneficiosMigrantes: `
-            <p><strong>Documentación de Identidad:</strong> Costarricenses: copia de cédula del grupo familiar. Extranjeros en condición regular: DIMEX vigente.</p>
-            <p><strong>Requisitos de Solicitud Socioeconómica:</strong> Encuesta socioeconómica, consentimiento informado, comprobantes de ingresos/gastos y cuenta bancaria en el BNCR.</p>
-            <p><strong>Periodos de Solicitud:</strong>
-                <ul>
-                    <li><em>II Semestre 2026:</em> Solicitud del 18 al 22 de junio 2026.</li>
-                    <li><em>I Semestre 2026:</em> Solicitud del 20 al 22 de octubre 2025.</li>
-                </ul>
-            </p>
+            <p><strong>Requisitos de Documentación para Solicitud de Beca:</strong></p>
+            <ul>
+                <li>Estudiantes costarricenses: copia de cédula del grupo familiar.</li>
+                <li>Estudiantes extranjeros en condición regular: DIMEX vigente (Residencia Permanente, Temporal o Refugio Aprobado).</li>
+            </ul>
+            <p><strong>Proceso Socioeconómico:</strong> Llenado de encuesta socioeconómica, firma de consentimiento informado, comprobantes probatorios de ingresos y egresos familiares, y apertura de cuenta bancaria en el Banco Nacional de Costa Rica.</p>
+            <p><strong>Fechas Clave de Solicitud:</strong></p>
+            <ul>
+                <li><em>II Semestre 2026:</em> Recepción del 18 al 22 de junio de 2026.</li>
+                <li><em>I Semestre 2026:</em> Recepción del 20 al 22 de octubre de 2025.</li>
+            </ul>
         `,
-        contacto: "Departamento de Becas y Salud / FEITEC - TEC."
+        contacto: "Departamento de Becas y Salud / Federación de Estudiantes del TEC (FEITEC). https://www.tec.ac.cr"
     },
     {
         id: 4,
@@ -150,9 +173,13 @@ const UNIVERSIDADES = [
             "Ingeniería en Electromecánica"
         ],
         beneficiosMigrantes: `
-            <p><strong>Identificación Aceptada para Migrantes:</strong> Cédula para nacionales. En el caso de personas migrantes, se requiere pasaporte al día, DIMEX vigente o <strong>Documento Oficial que acredite la condición de Solicitante de Refugio en Costa Rica</strong>.</p>
-            <p><strong>Tipos de Becas:</strong> Exoneraciones socioeconómicas (25% al 100%) y subsidios de alimentación, transporte y reubicación para categorías 4 y 5.</p>
-            <p><strong>Periodo de Solicitud:</strong> Del 21 al 25 de setiembre de 2026.</p>
+            <p><strong>Documentos de Identificación Aceptados:</strong> Cédula de identidad para nacionales. Para estudiantes migrantes se requiere pasaporte al día, DIMEX vigente o <strong>Documento Oficial que acredite la condición de Solicitante de Refugio en Costa Rica</strong>.</p>
+            <p><strong>Tipos de Becas Ofrecidas:</strong></p>
+            <ul>
+                <li>Exoneración socioeconómica gradual de matrícula y créditos (25%, 50%, 75% y 100%).</li>
+                <li>Subsidios económicos directos para alimentación, transporte y reubicación geográfica para beneficiarios en categorías de mayor vulnerabilidad (Categorías 4 y 5).</li>
+            </ul>
+            <p><strong>Periodo de Solicitud:</strong> Del 21 al 25 de septiembre de 2026.</p>
         `,
         contacto: "Fuente: Universidad Técnica Nacional. Solicitud de Beca. https://www.utn.ac.cr/solicitud-de-beca"
     },
@@ -184,10 +211,13 @@ const UNIVERSIDADES = [
             "Enseñanza de las Ciencias Naturales"
         ],
         beneficiosMigrantes: `
-            <p><strong>Requisitos para Asignación:</strong> Solicitud 100% virtual en fechas habilitadas. Estar admitido, residir en el país y contar con documento de identificación vigente.</p>
-            <p><strong>Categorías de Beca:</strong> Exoneraciones del 25% al 100% (Categorías A a E) en aranceles de matrícula, asignaturas y derechos de graduación.</p>
+            <p><strong>Requisitos de Asignación:</strong> Solicitud 100% virtual a través del entorno de estudiantes en las fechas establecidas. El estudiante debe estar formalmente admitido, residir en el país y presentar documento de identificación vigente (Cédula o DIMEX).</p>
+            <p><strong>Niveles de Exoneración Socioeconómica:</strong></p>
+            <ul>
+                <li>Categorías A a E con exoneraciones del 25%, 50%, 75% y 100% en los derechos de matrícula, asignaturas y derechos de graduación.</li>
+            </ul>
         `,
-        contacto: "Oficina de Atención Socioeconómica (OAS) - UNED, www.uned.ac.cr."
+        contacto: "Oficina de Atención Socioeconómica (OAS) - UNED. https://www.uned.ac.cr"
     },
     {
         id: 6,
@@ -217,10 +247,10 @@ const UNIVERSIDADES = [
             "Técnico en Mantenimiento de Sistemas Informáticos"
         ],
         beneficiosMigrantes: `
-            <p><strong>Requisitos de Identificación:</strong> Cédula para mayores, TIM para menores y DIMEX vigente para personas extranjeras.</p>
-            <p><strong>Beneficios:</strong> Ayudas económicas de transporte, alimentación, alojamiento y cuido de dependientes para población en vulnerabilidad socioeconómica.</p>
+            <p><strong>Requisitos de Identificación Aceptados:</strong> Cédula de identidad para nacionales mayores de edad, Tarjeta de Identificación de Menores (TIM) y DIMEX vigente para personas extranjeras en condición regular.</p>
+            <p><strong>Ayudas Económicas Directas:</strong> Subsidios económicos para transporte, alimentación, alojamiento y cuido de personas dependientes para estudiantes evaluados en situación de pobreza o vulnerabilidad socioeconómica mediante estudio de Trabajo Social.</p>
         `,
-        contacto: "Tel: (506) 2210-6000 | Email: informacion@ina.ac.cr | Web: www.ane.cr"
+        contacto: "Teléfono: (506) 2210-6000 | Correo: informacion@ina.ac.cr | Web: https://www.ane.cr"
     },
     {
         id: 7,
@@ -230,13 +260,17 @@ const UNIVERSIDADES = [
         carreras: [
             "Carreras Universitarias Públicas (UCR, UNA, TEC, UTN, UNED)",
             "Carreras Parauniversitarias Públicas",
-            "Carreras en Universidades Privadas (Acreditadas SINAES)",
+            "Carreras en Universidades Privadas (Acreditadas por SINAES)",
             "Diplomados Técnicos Superiores",
             "Bachilleratos Universitarios Diversos"
         ],
         beneficiosMigrantes: `
-            <p><strong>Subsidios Económicos Mensuales:</strong> ₡65.740 (de 2 a 3 materias) o ₡105.330 (4 materias en adelante) para estudiantes en condición de pobreza extrema, pobreza o vulnerabilidad (según SINIRUBE).</p>
-            <p><strong>Requisito de Identificación:</strong> Copia de Cédula de Identidad o DIMEX vigente.</p>
+            <p><strong>Subsidios Económicos Mensuales Directos:</strong></p>
+            <ul>
+                <li>₡65.740 mensuales para estudiantes matriculados en 2 a 3 materias.</li>
+                <li>₡105.330 mensuales para estudiantes matriculados en 4 materias o más.</li>
+            </ul>
+            <p><strong>Población Meta y Requisitos:</strong> Dirigido a estudiantes en condición de pobreza extrema, pobreza u otra situación de vulnerabilidad evaluada por el SINIRUBE. Requiere presentación de Cédula de Identidad o DIMEX vigente.</p>
         `,
         contacto: "Fuente: Ministerio de Educación Pública. (2026). Becas Postsecundaria. https://www.mep.go.cr/becas-postsecundaria"
     },
@@ -247,22 +281,21 @@ const UNIVERSIDADES = [
         imagenUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRs59kfc-KJ6QAmK0BleuX0jZFVtaYASogsAH_gD4_GJw&s=10",
         carreras: [
             "Estudios Universitarios en Sedes Regionales de la Zona Norte",
-            "Estudios Parauniversitarios y Institutos Técnicos Superior",
+            "Estudios Parauniversitarios e Institutos Técnicos Superiores",
             "Educación Secundaria Técnica y Académica",
             "Educación Primaria"
         ],
         beneficiosMigrantes: `
-            <p><strong>Cobertura y Becas Universitarias:</strong> Coopelesca brinda becas económicas destinadas a estudios universitarios y parauniversitarios.</p>
-            <p><strong>Condición Migratoria:</strong> <strong>No importa la categoría migratoria</strong> que posea el estudiante, siempre y cuando se encuentre <strong>vigente</strong>.</p>
-            <p><strong>Requisitos de Aplicación:</strong>
-                <ul>
-                    <li>Demostrar condición de limitación socioeconómica.</li>
-                    <li>Ser asociado cooperativo de Coopelesca o hijo/a de un asociado activo al día con sus obligaciones.</li>
-                    <li>Residir en la zona de concesión de la Cooperativa (Zona Norte / San Carlos) y contar con algún servicio activo (por ejemplo, electrificación).</li>
-                    <li>No contar con beca otorgada por otra institución.</li>
-                </ul>
-            </p>
-            <p><strong>Periodo de Solicitud:</strong> Durante el mes de Noviembre de cada año.</p>
+            <p><strong>Cobertura y Becas Universitarias:</strong> Coopelesca otorga becas económicas financieras directas para la realización de estudios universitarios y parauniversitarios.</p>
+            <p><strong>Condición Migratoria:</strong> <strong>No importa la categoría migratoria</strong> que posea el estudiante, siempre y cuando su documento se encuentre <strong>vigente</strong> al momento de presentar la postulación.</p>
+            <p><strong>Requisitos Fundamentales:</strong></p>
+            <ul>
+                <li>Demostrar una condición real de limitación socioeconómica mediante estudio.</li>
+                <li>Ser asociado cooperativo de Coopelesca o hijo/a de un asociado activo al día con sus obligaciones.</li>
+                <li>Residir en la zona de concesión de la Cooperativa (Zona Norte / San Carlos y cantones aledaños) y contar con algún servicio activo registrado (por ejemplo, servicio de electrificación).</li>
+                <li>No contar con beca otorgada por otra institución para el mismo fin.</li>
+            </ul>
+            <p><strong>Periodo de Solicitud:</strong> Las inscripciones se habilitan anualmente durante el mes de noviembre.</p>
         `,
         contacto: "Teléfonos: 2401-2275 / 2401-2875 | Web: https://coopelesca.com/beneficios/becas/"
     },
@@ -282,15 +315,17 @@ const UNIVERSIDADES = [
             "Psicología"
         ],
         beneficiosMigrantes: `
-            <p><strong>Beca de Liderazgo 100%:</strong> Dirigida a líderes comunales, emprendedores, talentos deportivos/artísticos y <strong>personas refugiadas con alto potencial</strong>.</p>
-            <p><strong>Requisito Académico:</strong> Promedio ponderado mínimo de 80% en los últimos dos años de estudio.</p>
+            <p><strong>Beca de Liderazgo (hasta 100% de cobertura):</strong> Programa enfocado en líderes comunales, emprendedores, personas con méritos deportivos/artísticos y <strong>personas refugiadas con alto potencial de desarrollo</strong>.</p>
+            <p><strong>Requisito Académico:</strong> Mantener un promedio ponderado de notas igual o superior a 80% en los últimos dos años de estudio cursados.</p>
         `,
         contacto: "Fuente: ULACIT. (2026). Becas ULACIT. https://ulacit.ac.cr/financiamiento-y-becas/becas/"
     }
 ];
 
 /**
- * DICCIONARIO DE BENEFICIOS POR CATEGORÍA MIGRATORIA
+ * =========================================================================
+ * 2. DICCIONARIO DE BENEFICIOS POR CATEGORÍA MIGRATORIA
+ * =========================================================================
  */
 const BENEFICIOS_POR_CATEGORIA = {
     residencia: {
@@ -298,8 +333,8 @@ const BENEFICIOS_POR_CATEGORIA = {
         descripcion: "Acceso total a beneficios socioeconómicos en universidades e instituciones públicas:",
         lista: [
             "<strong>UNA:</strong> Elegible para solicitar beca socioeconómica (Categorías 1 a 5), Beca Luis Felipe González y Beca Omar Dengo (Residencias Estudiantiles).",
-            "<strong>UCR:</strong> Equiparación total para postular a Becas Socioeconómicas (Categorías 1 a 5) y beneficios complementarios.",
-            "<strong>TEC:</strong> Elegibilidad completa presentando DIMEX vigente para Encuesta Socioeconómica y horas asistente.",
+            "<strong>UCR:</strong> Equiparación total para postular a Becas Socioeconómicas (Categorías 1 a 5) y beneficios complementarios de alimentación, alojamiento y transporte.",
+            "<strong>TEC:</strong> Elegibilidad completa presentando DIMEX vigente para Encuesta Socioeconómica y postulación a horas asistente o becas socioeconómicas.",
             "<strong>MEP & UNED:</strong> Acreditación con DIMEX para el cobro de subsidios mensuales o exoneraciones de matrícula del 25% al 100%."
         ]
     },
@@ -308,8 +343,8 @@ const BENEFICIOS_POR_CATEGORIA = {
         descripcion: "Protección y equiparación plena de derechos estudiantiles en Costa Rica:",
         lista: [
             "<strong>UNA:</strong> Equiparación plena. Exoneraciones de crédito según condición socioeconómica, ayuda económica mensual y residencias estudiantiles.",
-            "<strong>UCR:</strong> Elegible bajo el Art. 5 del Reglamento de Becas para optar por becas de la 1 a la 5.",
-            "<strong>UTN:</strong> Admisión formal presentando el documento oficial de refugio para exoneraciones del 25% al 100%.",
+            "<strong>UCR:</strong> Elegible bajo el Art. 5 del Reglamento de Becas para optar por becas de la 1 a la 5 en igualdad de condiciones.",
+            "<strong>UTN:</strong> Admisión formal presentando el documento oficial de refugio para procesar exoneraciones del 25% al 100%.",
             "<strong>ULACIT:</strong> Acceso a la Beca de Liderazgo 100% para personas refugiadas con alto promedio académico."
         ]
     },
@@ -318,9 +353,9 @@ const BENEFICIOS_POR_CATEGORIA = {
         descripcion: "Opciones confirmadas de educación superior que reconocen el trámite de refugio:",
         lista: [
             "<strong>UNA:</strong> Acceso permitido para solicitar Categoría de Beca Socioeconómica, Beca Luis Felipe González y Residencia Omar Dengo.",
-            "<strong>UCR:</strong> Elegible para la postulación de becas socioeconómicas (Categorías 1 a 5).",
+            "<strong>UCR:</strong> Elegible para la postulación de becas socioeconómicas (Categorías 1 a 5) según la normativa vigente.",
             "<strong>UTN:</strong> Requisito oficial que reconoce la acreditación de solicitante de refugio para procesar solicitudes de beca.",
-            "<strong>INA:</strong> Posibilidad de ingreso y evaluación de ayudas económicas tras estudio de Trabajo Social."
+            "<strong>INA:</strong> Posibilidad de ingreso y evaluación de ayudas económicas tras estudio socioeconómico de Trabajo Social."
         ]
     },
     categoria_especial: {
@@ -353,7 +388,7 @@ const BENEFICIOS_POR_CATEGORIA = {
 
 /**
  * =========================================================================
- * 2. CONTROL DEL DOM Y LOGICA DEL SISTEMA
+ * 3. CONTROL DEL DOM Y LOGICA DEL SISTEMA
  * =========================================================================
  */
 const carouselTrack = document.getElementById('carousel-track');
@@ -429,7 +464,7 @@ function renderUniversidades(listado) {
                 <div class="uni-body">
                     <div class="carreras-dropdown-container">
                         <button type="button" class="btn-carreras-toggle" onclick="toggleCarreras(this)">
-                            <span>🎓 Oferta académica</span> ▶
+                            <span>🎓 Oferta académica (${uni.carreras.length} carreras)</span> ▶
                         </button>
                         <div class="carreras-collapsible hidden">
                             <ul class="carreras-ul">${carrerasHTML}</ul>
@@ -461,20 +496,21 @@ window.toggleCard = function(button) {
 window.toggleCarreras = function(button) {
     const collapsible = button.nextElementSibling;
     collapsible.classList.toggle('hidden');
-    button.innerHTML = collapsible.classList.contains('hidden') ? '<span>🎓 Oferta académica</span> ▶' : '<span>🎓 Oferta académica</span> ▼';
+    button.innerHTML = collapsible.classList.contains('hidden') ? `<span>🎓 Oferta académica</span> ▶` : `<span>🎓 Oferta académica</span> ▼`;
 };
 
-// NAVEGACIÓN
+// NAVEGACIÓN DEL CARRUSEL
 btnNext.addEventListener('click', () => {
-    const cardWidth = carouselTrack.querySelector('.uni-card')?.offsetWidth || 350;
+    const cardWidth = carouselTrack.querySelector('.uni-card')?.offsetWidth || 420;
     carouselTrack.scrollBy({ left: cardWidth + 20, behavior: 'smooth' });
 });
 
 btnPrev.addEventListener('click', () => {
-    const cardWidth = carouselTrack.querySelector('.uni-card')?.offsetWidth || 350;
+    const cardWidth = carouselTrack.querySelector('.uni-card')?.offsetWidth || 420;
     carouselTrack.scrollBy({ left: -(cardWidth + 20), behavior: 'smooth' });
 });
 
+// NORMALIZADOR PARA BÚSQUEDAS SENSITIVAS
 function normalizarTexto(texto) {
     return (texto || '').toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 }
