@@ -3,89 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Migrando oportunidades - Guía de Educación Superior y Becas</title>
+    <title>Migrando Oportunidades - Costa Rica</title>
+    <!-- Asegúrate de que el archivo CSS se llame style.css o cambia la ruta aquí -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Encabezado Principal -->
-  <header class="main-header">
-  <div class="header-content">
-    <div class="brand-container">
-      <div class="header-attached-image">
-        <img src="tu-logo.png" class="top-logo-img" alt="Logo">
-      </div>
-      <div class="brand-title">
-        <h1>Migrando oportunidades</h1>
-        <p class="subtitle">Opciones de ingreso, carreras y beneficios socioeconómicos en Costa Rica</p>
-      </div>
-    </div>
-    <div class="header-actions">
-      <button class="theme-toggle-btn">Modo Claro</button>
-    </div>
-  </div>
-</header>
+    <!-- ENCABEZADO Y BRANDING -->
+    <header class="main-header">
+        <div class="header-content">
+            <div class="brand-container">
+                <div class="header-attached-image">
+                    <!-- REEMPLAZA 'tu-imagen.png' CON LA RUTA Y NOMBRE REAL DE TU IMAGEN -->
+                    <img src="tu-imagen.png" class="top-logo-img" alt="Logo Migrando Oportunidades">
+                </div>
+                <div class="brand-title">
+                    <h1>Migrando oportunidades</h1>
+                    <p class="subtitle">Opciones de ingreso, carreras y beneficios socioeconómicos en Costa Rica</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button id="theme-toggle" class="theme-toggle-btn" type="button">☀️ Modo Claro</button>
+            </div>
+        </div>
+    </header>
+
     <main class="container">
-        <!-- 1. Consulta por Categoría Migratoria -->
+        <!-- SECCIÓN 1: CONSULTA POR ESTATUS MIGRATORIO -->
         <section class="estatus-section">
-            <h2>Consulta por Estatus / Categoría Migratoria</h2>
-            <p class="section-description">Selecciona tu condición migratoria actual para conocer los derechos de admisión y beneficios de beca socioeconómica aplicables:</p>
-            <form id="form-estatus">
+            <h2>Consulta por estatus / categoría Migratoria</h2>
+            <p class="section-description">Selecciona tu condición en Costa Rica:</p>
+            
+            <form id="estatus-form">
                 <div class="form-group">
-                    <label for="select-categoria">Selecciona tu condición en Costa Rica:</label>
-                    <select id="select-categoria" required>
+                    <select id="select-estatus" name="estatus">
                         <option value="" disabled selected>-- Selecciona una categoría --</option>
-                        <option value="residencia">Residencia Permanente / Regularizado (DIMEX)</option>
-                        <option value="refugiado">Refugiado Aprobado</option>
-                        <option value="solicitante">Solicitante de Refugio (Documento en trámite)</option>
-                        <option value="categoria_especial">Régimen Especial / Categoría Especial / Convenios</option>
-                        <option value="coopelesca">Asociado Coopelesca (Zona Norte / San Carlos)</option>
-                        <option value="internacional">Estudiante Internacional / Visa Estudiantil / Sin Regularizar</option>
+                        <option value="refugiado">Solicitante de Refugio / Refugiado</option>
+                        <option value="residente_temporal">Residencia Temporal</option>
+                        <option value="residente_permanente">Residencia Permanente</option>
+                        <option value="estudiante">Categoría Especial de Estudiante</option>
+                        <option value="irregular">Estatus Irregular</option>
                     </select>
                 </div>
                 <button type="submit" class="btn-submit">Consultar Beneficios</button>
             </form>
 
-            <div id="result-box" class="result-box hidden">
-                <h3 id="result-title"></h3>
-                <p id="result-description"></p>
-                <ul id="result-list"></ul>
+            <div id="resultado-estatus" class="result-box hidden">
+                <h3 id="resultado-titulo">Requisitos y Opciones</h3>
+                <div id="resultado-contenido">
+                    <!-- Aquí se inyecta la información con JS -->
+                </div>
             </div>
         </section>
 
-        <!-- Bloque Integrado: Filtro de Búsqueda y Carrusel de Universidades -->
-        <div class="universidades-wrapper">
-            <!-- Buscador general de universidades -->
-            <section class="search-section">
-                <h2>Búsqueda de Instituciones y Carreras</h2>
-                <p class="search-help">Puedes buscar por nombre de universidad, carrera específica, tipo de beca o palabra clave:</p>
-                <input type="text" id="input-busqueda" placeholder="🔍 Buscar por universidad, carrera o requisito..." aria-label="Buscador general">
-            </section>
+        <!-- SECCIÓN 2: BUSCADOR DE UNIVERSIDADES Y CARRUSEL -->
+        <section class="universidades-wrapper">
+            <div class="search-section">
+                <h2>Buscador de Universidades y Oferta Académica</h2>
+                <p class="search-help">Filtra por nombre de universidad, carrera o tipo de beneficio:</p>
+                <input type="text" id="input-busqueda" placeholder="Ej. UCR, Medicina, Beca, Convenio...">
+            </div>
 
-            <!-- Carrusel / Galería de Instituciones -->
-            <section class="carousel-section">
-                <div class="carousel-controls">
-                    <h3>Instituciones Destacadas</h3>
-                    <div class="nav-btns">
-                        <button id="btn-prev" class="btn-nav" aria-label="Anterior">◄</button>
-                        <button id="btn-next" class="btn-nav" aria-label="Siguiente">►</button>
+            <div class="carousel-controls">
+                <span>Centros educativos disponibles</span>
+                <div class="nav-btns">
+                    <button id="btn-prev" class="btn-nav" type="button">&lt; Anterior</button>
+                    <button id="btn-next" class="btn-nav" type="button">Siguiente &gt;</button>
+                </div>
+            </div>
+
+            <!-- CARRUSEL DE UNIVERSIDADES -->
+            <div class="carousel-track" id="carousel-track">
+                
+                <!-- Tarjeta de Ejemplo 1 -->
+                <article class="uni-card">
+                    <img src="https://via.placeholder.com/400x200" alt="Universidad de Costa Rica" class="uni-banner">
+                    <div class="uni-header">
+                        <h3 class="uni-name">Universidad de Costa Rica (UCR)</h3>
+                        <span class="badge">Pública</span>
                     </div>
-                </div>
-                <div id="carousel-track" class="carousel-track">
-                    <!-- Se renderiza dinámicamente desde script.js -->
-                </div>
-            </section>
-        </div>
+                    <p class="uni-preview">Ofrece becas socioeconómicas y programas de admisión especial para personas en condición migratoria regulada.</p>
+                    
+                    <div class="btn-toggle-container">
+                        <button class="btn-toggle" type="button" onclick="toggleCard(this)">
+                            Ver más información <span>▼</span>
+                        </button>
+                    </div>
+
+                    <div class="uni-collapsible">
+                        <div class="alert-box">
+                            <strong>Atención:</strong> Requiere convalidación de títulos de secundaria ante el MEP.
+                        </div>
+
+                        <button class="btn-carreras-toggle" type="button" onclick="toggleCarreras(this)">
+                            Ver Carreras Disponibles <span>▼</span>
+                        </button>
+                        
+                        <div class="carreras-collapsible hidden">
+                            <ul class="carreras-ul">
+                                <li>Derecho</li>
+                                <li>Medicina</li>
+                                <li>Ingeniería de Sistemas</li>
+                                <li>Educación Primaria</li>
+                            </ul>
+                        </div>
+
+                        <p class="contacto-text" style="margin-top: 15px;">
+                            <strong>Contacto:</strong> admision@ucr.ac.cr | +506 2511-0000
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Tarjeta de Ejemplo 2 -->
+                <article class="uni-card">
+                    <img src="https://via.placeholder.com/400x200" alt="Universidad Nacional" class="uni-banner">
+                    <div class="uni-header">
+                        <h3 class="uni-name">Universidad Nacional (UNA)</h3>
+                        <span class="badge">Pública</span>
+                    </div>
+                    <p class="uni-preview">Cuenta con protocolo de atención para población refugiada y opciones de apoyo socioeconómico.</p>
+                    
+                    <div class="btn-toggle-container">
+                        <button class="btn-toggle" type="button" onclick="toggleCard(this)">
+                            Ver más información <span>▼</span>
+                        </button>
+                    </div>
+
+                    <div class="uni-collapsible">
+                        <div class="alert-box">
+                            <strong>Aviso:</strong> El proceso de inscripción para el examen de admisión abre en febrero.
+                        </div>
+
+                        <button class="btn-carreras-toggle" type="button" onclick="toggleCarreras(this)">
+                            Ver Carreras Disponibles <span>▼</span>
+                        </button>
+                        
+                        <div class="carreras-collapsible hidden">
+                            <ul class="carreras-ul">
+                                <li>Sociología</li>
+                                <li>Administración</li>
+                                <li>Informática</li>
+                            </ul>
+                        </div>
+
+                        <p class="contacto-text" style="margin-top: 15px;">
+                            <strong>Contacto:</strong> contacto@una.ac.cr | +506 2277-3000
+                        </p>
+                    </div>
+                </article>
+
+            </div>
+        </section>
     </main>
 
-    <!-- Pie de Página -->
+    <!-- PIE DE PÁGINA -->
     <footer class="main-footer">
-        <div class="footer-content">
-            <p>Migrando oportunidades &copy; 2026</p>
-            <p class="footer-subtext">Plataforma informativa desarrollada en Costa Rica para la orientación académica, migratoria e inclusión socioeconómica estudiantil.</p>
-        </div>
+        <p>&copy; 2026 Migrando Oportunidades - Costa Rica</p>
+        <p class="footer-subtext">Plataforma informativa de apoyo a la integración académica y profesional.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- SCRIPT PARA INTERACTIVIDAD DE MODO CLARO/OSCURO Y TARJETAS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Lógica del botón de cambio de Modo Claro / Modo Oscuro
+            const themeBtn = document.getElementById('theme-toggle');
+
+            if (themeBtn) {
+                themeBtn.addEventListener('click', () => {
+                    document.body.classList.toggle('dark-mode');
+                    
+                    const isDark = document.body.classList.contains('dark-mode');
+                    themeBtn.textContent = isDark ? '☀️ Modo Claro' : '🌙 Modo Oscuro';
+                });
+            }
+
+            // Desplazamiento simple del carrusel
+            const track = document.getElementById('carousel-track');
+            const btnPrev = document.getElementById('btn-prev');
+            const btnNext = document.getElementById('btn-next');
+
+            if (btnPrev && btnNext && track) {
+                btnNext.addEventListener('click', () => {
+                    track.scrollBy({ left: 320, behavior: 'smooth' });
+                });
+
+                btnPrev.addEventListener('click', () => {
+                    track.scrollBy({ left: -320, behavior: 'smooth' });
+                });
+            }
+        });
+
+        // Función para expandir información de las tarjetas
+        function toggleCard(button) {
+            const card = button.closest('.uni-card');
+            card.classList.toggle('expanded');
+            const isExpanded = card.classList.contains('expanded');
+            button.querySelector('span').textContent = isExpanded ? '▲' : '▼';
+        }
+
+        // Función para desplegar lista de carreras
+        function toggleCarreras(button) {
+            const container = button.nextElementSibling;
+            container.classList.toggle('hidden');
+            const isHidden = container.classList.contains('hidden');
+            button.querySelector('span').textContent = isHidden ? '▼' : '▲';
+        }
+    </script>
 </body>
 </html>
